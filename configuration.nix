@@ -63,10 +63,21 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  services.xserver.desktopManager.gnome.extraGsettingsOverrides = ''
-    [org.gnome.mutter]
-    experimental-features=['scale-monitor-framebuffer']
-  '';
+
+  programs.dconf = {
+    enable = true;
+    profiles.user.databases = [
+      {
+        settings = {
+          "org/gnome/mutter" = {
+            experimental-features = [ "scale-monitor-framebuffer" ];
+          };
+        };
+      }
+    ];
+  };
+
+  services.xserver.desktopManager.gnome.extraGsettingsOverridePackages = [ pkgs.gnome-mutter ];
 
   environment.sessionVariables = {
     # This fixes blurriness in Electron/Chromium apps
