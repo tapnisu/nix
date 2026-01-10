@@ -60,6 +60,12 @@
     useXkbConfig = true; # Respects the keyboard layout you set below
   };
 
+  # Enable the GNOME Desktop Environment.
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
+  services.flatpak.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tapnisu = {
     isNormalUser = true;
