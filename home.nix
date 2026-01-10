@@ -101,8 +101,13 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Aleksei Rybin";
-    userEmail = "aleksei@tapni.su";
+
+    extraConfig.init.defaultBranch = "main";
+
+    settings.user = {
+      name = "Aleksei Rybin";
+      email = "aleksei@tapni.su";
+    }
   };
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
