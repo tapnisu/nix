@@ -60,24 +60,21 @@
     useXkbConfig = true; # Respects the keyboard layout you set below
   };
 
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
-  programs.dconf = {
+  services.xserver = {
     enable = true;
-    profiles.user.databases = [
-      {
-        settings = {
-          "org/gnome/mutter" = {
-            experimental-features = [ "scale-monitor-framebuffer" ];
-          };
-        };
-      }
-    ];
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
+    desktopManager.gnome = {
+      enable = true;
+      extraGSettingsOverridePackages = [ pkgs.mutter ];
+      extraGSettingsOverrides = ''
+        [org.gnome.mutter]
+        experimental-features=['scale-monitor-framebuffer']
+      '';
+    };
   };
-
-  services.xserver.desktopManager.gnome.extraGsettingsOverridePackages = [ pkgs.gnome-mutter ];
 
   environment.sessionVariables = {
     # This fixes blurriness in Electron/Chromium apps
