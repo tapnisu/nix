@@ -107,7 +107,7 @@
     settings.user = {
       name = "Aleksei Rybin";
       email = "aleksei@tapni.su";
-    }
+    };
   };
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
