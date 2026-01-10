@@ -63,6 +63,21 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.extraGsettingsOverrides = ''
+    [org.gnome.mutter]
+    experimental-features=['scale-monitor-framebuffer']
+  '';
+
+  environment.sessionVariables = {
+    # This fixes blurriness in Electron/Chromium apps
+    NIXOS_OZONE_WL = "1";
+    
+    # Optional: Fixes blurriness in Firefox (though usually default now)
+    MOZ_ENABLE_WAYLAND = "1";
+
+    # Optional: Fixes blurriness in Qt apps (like VLC or OBS)
+    QT_QPA_PLATFORM = "wayland;xcb";
+  };
 
   services.flatpak.enable = true;
 
