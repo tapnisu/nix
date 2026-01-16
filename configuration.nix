@@ -137,6 +137,21 @@
   programs.gamescope.enable = true;
   programs.gamemode.enable = true;
 
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -151,15 +166,12 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 25565 ];
-  networking.firewall.allowedUDPPorts = [ 25565 ];
+  networking.firewall = {
+    allowedTCPPorts = [ 22000 ];
+    allowedUDPPorts = [ 22000 21027 ];
+  };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true; # Open ports in the firewall for Syncthing. (NOTE: this will not open syncthing gui port)
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

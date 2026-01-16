@@ -140,6 +140,15 @@
     vencord
   ];
 
+  services.syncthing = {
+    enable = true;
+    settings = {
+      options = {
+        deviceName = "Tapnisu Laptop Linux";
+      };
+    };
+  };
+
   programs.mpv.enable = true;
 
   # basic configuration of git, please change to your own
