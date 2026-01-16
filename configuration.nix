@@ -111,6 +111,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    xwayland-satellite
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
@@ -131,7 +132,7 @@
   };
 
   programs.steam.enable = true;
-
+  programs.gamescope.enable = true;
   programs.gamemode.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
