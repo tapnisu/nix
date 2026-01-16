@@ -23,6 +23,8 @@
   #     xxx
   # '';
 
+  xdg.configFile."niri/config.kdl".source = ./niri.kdl;
+
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
@@ -113,6 +115,9 @@
     hugo # static site generator
     glow # markdown previewer in terminal
 
+    fastfetch
+
+    htop
     btop  # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
@@ -128,7 +133,14 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+
+    swaybg
+
+    telegram-desktop
+    vencord
   ];
+
+  programs.mpv.enable = true;
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -153,6 +165,20 @@
       };
       scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
+    };
+  };
+
+  programs.waybar = {
+    enable = true;
+  };
+
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        terminal = "${pkgs.alacritty}/bin/alacritty";
+        layer = "overlay";
+      };
     };
   };
 

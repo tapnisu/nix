@@ -69,6 +69,7 @@
   };
 
   programs.niri.enable = true;
+  security.pam.services.swaylock = {};
 
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
@@ -115,6 +116,7 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
+    swaylock
   ];
 
   environment.variables.EDITOR = "nvim";
@@ -153,6 +155,11 @@
   networking.firewall.allowedUDPPorts = [ 25565 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true; # Open ports in the firewall for Syncthing. (NOTE: this will not open syncthing gui port)
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
