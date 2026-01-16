@@ -15,7 +15,7 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nur ... }: {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       tapnisu-laptop = nixpkgs.lib.nixosSystem {
