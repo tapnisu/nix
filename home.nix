@@ -35,10 +35,10 @@
   programs.firefox-esr.enable = true;
   programs.thunderbird-esr.enable = true;
 
-  environment.sessionVariables = {
+  home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
+    EDITOR = "code";
   };
-  environment.variables.EDITOR = "code";
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
