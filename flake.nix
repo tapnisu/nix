@@ -12,10 +12,9 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nur, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       tapnisu-laptop = nixpkgs.lib.nixosSystem {
@@ -33,7 +32,6 @@
             home-manager.users.tapnisu = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-            home-manager.sharedModules = [ nur.hmModules.nur ];
           }
         ];
       };
