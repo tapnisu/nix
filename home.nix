@@ -23,11 +23,22 @@
   #     xxx
   # '';
 
-  # set cursor size and dpi for 4k monitor
-  xresources.properties = {
-    "Xcursor.size" = 16;
-    "Xft.dpi" = 172;
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      dracula-theme.theme-dracula
+      vscodevim.vim
+      yzhang.markdown-all-in-one
+    ];
   };
+
+  programs.firefox-esr.enable = true;
+  programs.thunderbird-esr.enable = true;
+
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
+  environment.variables.EDITOR = "code";
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [

@@ -66,20 +66,25 @@
       enable = true;
       wayland = true;
     };
-    desktopManager.gnome = {
-      enable = true;
-      extraGSettingsOverridePackages = [ pkgs.mutter ];
-      extraGSettingsOverrides = ''
-        [org.gnome.mutter]
-        experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
-      '';
-    };
+  };
+
+  programs.niri.enable = true;
+
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+
+  services.thermald.enable = true;
+
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
   };
 
   environment.sessionVariables = {
     # This fixes blurriness in Electron/Chromium apps
     NIXOS_OZONE_WL = "1";
-    
+
     # Optional: Fixes blurriness in Firefox (though usually default now)
     MOZ_ENABLE_WAYLAND = "1";
 
@@ -88,12 +93,13 @@
   };
 
   services.flatpak.enable = true;
+  virtualisation.docker.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tapnisu = {
     isNormalUser = true;
     description = "Aleksei Rybin";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -115,6 +121,13 @@
   services.openssh = {
     enable = true;
     openFirewall = true;
+    ports = [ 22222 ];
+
+    settings = {
+      PermitRootLogin = false;
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
   };
 
   programs.steam.enable = true;
@@ -135,8 +148,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 25565 ];
+  networking.firewall.allowedUDPPorts = [ 25565 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
