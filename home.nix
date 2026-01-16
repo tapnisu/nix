@@ -35,11 +35,36 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-esr;
+    profiles.default = {
+      id = 0;
+      name = "default";
+      isDefault = true;
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        ublock-origin
+        keepassxc-browser
+      ];
+    };
+  };
+
+  programs.firefox.policies = {
+    ExtensionSettings = {
+      "uBlock0@raymondhill.net" = {
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        installation_mode = "force_installed";
+      };
+      "keepassxc-browser@keepassxc.org" = {
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi";
+        installation_mode = "force_installed";
+      };
+    };
   };
 
   programs.thunderbird = {
     enable = true;
     package = pkgs.thunderbird-esr;
+    profiles.default = {
+      isDefault = true;
+    };
   };
 
   home.sessionVariables = {
@@ -49,6 +74,8 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    keepassxc
+
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
 
