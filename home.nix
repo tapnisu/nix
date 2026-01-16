@@ -142,9 +142,10 @@
 
   services.syncthing = {
     enable = true;
+    configDir = "/home/tapnisu/.config/syncthing";
     settings = {
       options = {
-        deviceName = "Tapnisu Laptop Linux";
+        urAccepted = -1;
       };
     };
   };
