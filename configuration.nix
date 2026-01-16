@@ -125,7 +125,7 @@
 
     settings = {
       PermitRootLogin = "no";
-      PasswordAuthentication = "no";
+      PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
     };
   };
