@@ -32,8 +32,15 @@
     ];
   };
 
-  programs.firefox-esr.enable = true;
-  programs.thunderbird-esr.enable = true;
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-esr;
+  };
+
+  programs.thunderbird = {
+    enable = true;
+    package = pkgs.thunderbird-esr;
+  };
 
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
