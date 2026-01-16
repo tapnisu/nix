@@ -124,9 +124,9 @@
     ports = [ 22222 ];
 
     settings = {
-      PermitRootLogin = false;
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      PasswordAuthentication = "no";
+      KbdInteractiveAuthentication = "no";
     };
   };
 
