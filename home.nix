@@ -159,11 +159,6 @@
     };
   };
 
-  services.gpg-agent = {
-    enable = true;
-    pinentryPackage = "tty";
-  };
-
   home.pointerCursor =
     let 
       getFrom = url: hash: name: {
