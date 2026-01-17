@@ -15,6 +15,17 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 5;
 
+services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      WIFI_PWR_ON_BAT = "off";
+    };
+  };
+
+
   swapDevices = [{
     device = "/swapfile";
     size = 32 * 1024; # 32GiB
