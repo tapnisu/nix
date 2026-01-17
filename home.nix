@@ -145,13 +145,23 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
+    userName = "Aleksei Rybin";
+    userEmail = "aleksei@tapni.su";
 
-    extraConfig.init.defaultBranch = "main";
+    extraConfig = {
+      init.defaultBranch = "main";
+      pull.rebase = true;
+      core.editor = "code";
 
-    settings.user = {
-      name = "Aleksei Rybin";
-      email = "aleksei@tapni.su";
+      user.signingkey = "08AB2A9B83C7ED9F";
+      commit.gpgsign = true;
+      tag.gpgsign = true;
     };
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "tty";
   };
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
