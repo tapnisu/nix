@@ -161,7 +161,7 @@
 
   services.gpg-agent = {
     enable = true;
-    pinentryFlavor = "tty";
+    pinentryPackage = "tty";
   };
 
   home.pointerCursor =
@@ -185,6 +185,32 @@
         "https://github.com/ful1e5/fuchsia-cursor/releases/download/v2.0.0/Fuchsia-Pop.tar.gz"
         "sha256-BvVE9qupMjw7JRqFUj1J0a4ys6kc9fOLBPx2bGaapTk="
         "Fuchsia-Pop";
+
+    programs.ssh = {
+    enable = true;
+
+    matchBlocks = {
+      "kohaku" = { hostname = "kohaku.tapni.su"; user = "tapnisu"; };
+      "hisui"  = { hostname = "hisui.tapni.su";  user = "tapnisu"; };
+      "akiha"  = { hostname = "akiha.tapni.su";  user = "tapnisu"; };
+      "desktop" = {
+        hostname = "desktop.tapni.su";
+        user = "tapnisu";
+      };
+      "laptop" = {
+        hostname = "laptop.tapni.su";
+        user = "tapnisu";
+      };
+      "phonewave" = {
+        hostname = "phonewave.tapni.su";
+        user = "u0_a338";
+      };
+      "rybin-pc" = {
+        hostname = "rybin-pc";
+        user = "zlobi";
+      };
+    };
+  };
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
