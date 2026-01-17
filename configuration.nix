@@ -61,7 +61,10 @@
   };
 
   programs.niri.enable = true;
-  security.pam.services.swaylock = {};
+
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix-550a;
 
   services.thermald.enable = true;
 
@@ -104,7 +107,6 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    swaylock
   ];
 
   environment.variables.EDITOR = "nvim";
