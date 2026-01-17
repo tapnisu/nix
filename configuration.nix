@@ -60,20 +60,8 @@
     useXkbConfig = true; # Respects the keyboard layout you set below
   };
 
-  services.xserver = {
-    enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
-  };
-
   programs.niri.enable = true;
   security.pam.services.swaylock = {};
-
-  services.fprintd.enable = true;
-  services.fprintd.tod.enable = true;
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
 
   services.thermald.enable = true;
 
