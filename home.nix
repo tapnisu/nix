@@ -140,16 +140,6 @@
     vencord
   ];
 
-  services.syncthing = {
-    enable = true;
-    configDir = "/home/tapnisu/.config/syncthing";
-    settings = {
-      options = {
-        urAccepted = -1;
-      };
-    };
-  };
-
   programs.mpv.enable = true;
 
   # basic configuration of git, please change to your own

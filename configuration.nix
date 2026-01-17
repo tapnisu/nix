@@ -147,6 +147,21 @@
     #media-session.enable = true;
   };
 
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+
+    user = "tapnisu";
+    group = "users";
+
+    configDir = "/home/tapnisu/.config/syncthing";
+    settings = {
+      options = {
+        urAccepted = -1;
+      };
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -162,8 +177,8 @@
 
   # Open ports in the firewall.
   networking.firewall = {
-    allowedTCPPorts = [ 22000 ];
-    allowedUDPPorts = [ 22000 21027 ];
+    allowedTCPPorts = [ 25565 ];
+    allowedUDPPorts = [ 25565 ];
   };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
