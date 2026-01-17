@@ -109,6 +109,11 @@
     git
   ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.iosevka
+    nerd-fonts.iosevka-term
+  ];
+
   environment.variables.EDITOR = "nvim";
 
   services.openssh = {
