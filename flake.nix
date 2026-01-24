@@ -17,7 +17,7 @@
     tapciify.url = "github:tapnisu/tapciify";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, tapciify, ... }: {
     nixosConfigurations = {
       tapnisu-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
