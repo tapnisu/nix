@@ -31,7 +31,7 @@
   };
 
   programs.firefox = {
-    programs.firefox.enable = if isWSL then false else true;
+    enable = if isWSL then false else true;
     package = pkgs.firefox-esr;
     profiles.default = {
       id = 0;
@@ -45,7 +45,7 @@
   };
 
   programs.thunderbird = {
-    programs.thunderbird.enable = if isWSL then false else true;
+    enable = if isWSL then false else true;
     package = pkgs.thunderbird-esr;
     profiles.default = {
       isDefault = true;
