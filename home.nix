@@ -59,6 +59,8 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    tapciify.packages.${pkgs.system}.default
+
     keepassxc
 
     # here is some command line tools I use frequently
