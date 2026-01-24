@@ -26,8 +26,10 @@
   xdg.configFile."niri/config.kdl".source = ./niri.kdl;
 
   programs.vscode = {
-    enable = if isWSL then false else true;
-    extensions = with pkgs.vscode-extensions; [];
+    enable = !isWSL;
+    profiles.default = {
+      extensions = with pkgs.vscode-extensions; [];
+    };
   };
 
   programs.firefox = {
@@ -140,18 +142,17 @@
 
   programs.mpv.enable = true;
 
-  # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Aleksei Rybin";
-    userEmail = "aleksei@tapni.su";
-
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Aleksei Rybin";
+        email = "aleksei@tapni.su";
+        signingkey = "08AB2A9B83C7ED9F";
+      };
       init.defaultBranch = "main";
       pull.rebase = true;
       core.editor = "code";
-
-      user.signingkey = "08AB2A9B83C7ED9F";
       commit.gpgsign = true;
       tag.gpgsign = true;
     };
@@ -179,8 +180,9 @@
         "sha256-BvVE9qupMjw7JRqFUj1J0a4ys6kc9fOLBPx2bGaapTk="
         "Fuchsia-Pop";
 
-    programs.ssh = {
+  programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
 
     matchBlocks = {
       "kohaku" = { hostname = "kohaku.tapni.su"; user = "tapnisu"; };

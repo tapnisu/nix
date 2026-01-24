@@ -20,7 +20,7 @@
   outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, tapciify, ... }: {
     nixosConfigurations = {
       tapnisu-laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        nixpkgs.hostPlatform = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/laptop/configuration.nix
@@ -35,7 +35,7 @@
       };
 
       tapnisu-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        nixpkgs.hostPlatform = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/desktop/configuration.nix
@@ -50,7 +50,7 @@
       };
 
       tapnisu-laptop-wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        nixpkgs.hostPlatform = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           nixos-wsl.nixosModules.default
@@ -66,7 +66,7 @@
       };
 
       tapnisu-desktop-wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        nixpkgs.hostPlatform = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           nixos-wsl.nixosModules.default
