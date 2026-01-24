@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  imports = [ ./common.nix ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [./common.nix];
 
   wsl.enable = true;
   wsl.defaultUser = "tapnisu";

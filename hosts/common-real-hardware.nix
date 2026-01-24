@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  imports = [ ./common.nix ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [./common.nix];
 
   networking.networkmanager.enable = true;
 
@@ -32,7 +34,7 @@
   };
 
   console = {
-    packages = with pkgs; [ terminus_font ];
+    packages = with pkgs; [terminus_font];
     useXkbConfig = true;
   };
 
@@ -56,7 +58,7 @@
   services.openssh = {
     enable = true;
     openFirewall = true;
-    ports = [ 22222 ];
+    ports = [22222];
 
     settings = {
       PermitRootLogin = "no";
@@ -81,7 +83,7 @@
   };
 
   networking.firewall = {
-    allowedTCPPorts = [ 25565 ];
-    allowedUDPPorts = [ 25565 ];
+    allowedTCPPorts = [25565];
+    allowedUDPPorts = [25565];
   };
 }

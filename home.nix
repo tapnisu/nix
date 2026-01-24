@@ -1,6 +1,10 @@
-{ config, pkgs, isWSL, tapciify, ... }:
-
 {
+  config,
+  pkgs,
+  isWSL,
+  tapciify,
+  ...
+}: {
   # TODO please change the username & home directory to your own
   home.username = "tapnisu";
   home.homeDirectory = "/home/tapnisu";
@@ -33,7 +37,10 @@
   };
 
   programs.firefox = {
-    enable = if isWSL then false else true;
+    enable =
+      if isWSL
+      then false
+      else true;
     package = pkgs.firefox-esr;
     profiles.default = {
       id = 0;
@@ -47,7 +54,10 @@
   };
 
   programs.thunderbird = {
-    enable = if isWSL then false else true;
+    enable =
+      if isWSL
+      then false
+      else true;
     package = pkgs.thunderbird-esr;
     profiles.default = {
       isDefault = true;
@@ -87,12 +97,12 @@
     # networking tools
     mtr # A network diagnostic tool
     iperf3
-    dnsutils  # `dig` + `nslookup`
+    dnsutils # `dig` + `nslookup`
     ldns # replacement of `dig`, it provide the command `drill`
     aria2 # A lightweight multi-protocol & multi-source command-line download utility
     socat # replacement of openbsd-netcat
     nmap # A utility for network discovery and security auditing
-    ipcalc  # it is a calculator for the IPv4/v6 addresses
+    ipcalc # it is a calculator for the IPv4/v6 addresses
 
     # misc
     cowsay
@@ -118,7 +128,7 @@
     fastfetch
 
     htop
-    btop  # replacement of htop/nmon
+    btop # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
 
@@ -158,36 +168,43 @@
     };
   };
 
-  home.pointerCursor =
-    let 
-      getFrom = url: hash: name: {
-          gtk.enable = true;
-          x11.enable = true;
-          name = name;
-          size = 48;
-          package =
-            pkgs.runCommand "moveUp" {} ''
-              mkdir -p $out/share/icons
-              ln -s ${pkgs.fetchzip {
-                url = url;
-                hash = hash;
-              }} $out/share/icons/${name}
-          '';
-        };
-    in
-      getFrom 
-        "https://github.com/ful1e5/fuchsia-cursor/releases/download/v2.0.0/Fuchsia-Pop.tar.gz"
-        "sha256-BvVE9qupMjw7JRqFUj1J0a4ys6kc9fOLBPx2bGaapTk="
-        "Fuchsia-Pop";
+  home.pointerCursor = let
+    getFrom = url: hash: name: {
+      gtk.enable = true;
+      x11.enable = true;
+      name = name;
+      size = 48;
+      package = pkgs.runCommand "moveUp" {} ''
+        mkdir -p $out/share/icons
+        ln -s ${pkgs.fetchzip {
+          url = url;
+          hash = hash;
+        }} $out/share/icons/${name}
+      '';
+    };
+  in
+    getFrom
+    "https://github.com/ful1e5/fuchsia-cursor/releases/download/v2.0.0/Fuchsia-Pop.tar.gz"
+    "sha256-BvVE9qupMjw7JRqFUj1J0a4ys6kc9fOLBPx2bGaapTk="
+    "Fuchsia-Pop";
 
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
 
     matchBlocks = {
-      "kohaku" = { hostname = "kohaku.tapni.su"; user = "tapnisu"; };
-      "hisui"  = { hostname = "hisui.tapni.su";  user = "tapnisu"; };
-      "akiha"  = { hostname = "akiha.tapni.su";  user = "tapnisu"; };
+      "kohaku" = {
+        hostname = "kohaku.tapni.su";
+        user = "tapnisu";
+      };
+      "hisui" = {
+        hostname = "hisui.tapni.su";
+        user = "tapnisu";
+      };
+      "akiha" = {
+        hostname = "akiha.tapni.su";
+        user = "tapnisu";
+      };
       "desktop" = {
         hostname = "desktop.tapni.su";
         user = "tapnisu";

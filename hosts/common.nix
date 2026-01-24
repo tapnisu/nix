@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  config,
+  pkgs,
+  ...
+}: {
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Asia/Krasnoyarsk";
@@ -29,7 +31,7 @@
   users.users.tapnisu = {
     isNormalUser = true;
     description = "Aleksei Rybin";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMW/+EvS0eyqdQNWlzO4TxWTy0sVQ2n6pS5YGhB9Vyyt tapnisu@tapnisu-desktop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGsEj2s/rcKJPg0HwTW75/MdyomK6q1K625/4BeXVB/n u0_a338@localhost"
