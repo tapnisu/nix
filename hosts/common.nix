@@ -1,0 +1,40 @@
+{ config, pkgs, ... }:
+
+{
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
+
+  time.timeZone = "Asia/Krasnoyarsk";
+  i18n.defaultLocale = "ru_RU.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "ru_RU.UTF-8";
+    LC_IDENTIFICATION = "ru_RU.UTF-8";
+    LC_MEASUREMENT = "ru_RU.UTF-8";
+    LC_MONETARY = "ru_RU.UTF-8";
+    LC_NAME = "ru_RU.UTF-8";
+    LC_NUMERIC = "ru_RU.UTF-8";
+    LC_PAPER = "ru_RU.UTF-8";
+    LC_TELEPHONE = "ru_RU.UTF-8";
+    LC_TIME = "ru_RU.UTF-8";
+  };
+
+  environment.systemPackages = with pkgs; [
+    neovim
+    wget
+    git
+    fastfetch
+  ];
+  environment.variables.EDITOR = "nvim";
+
+  users.users.tapnisu = {
+    isNormalUser = true;
+    description = "Aleksei Rybin";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMW/+EvS0eyqdQNWlzO4TxWTy0sVQ2n6pS5YGhB9Vyyt tapnisu@tapnisu-desktop"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILn4cwutqgmbLpkMOIujqKuyUxvdX995J5/191UKP6ns tapnisu@tapnisu-laptop"
+    ];
+  };
+
+  system.stateVersion = "25.11";
+}

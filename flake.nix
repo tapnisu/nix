@@ -3,35 +3,70 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    # home-manager, used for managing user configuration
+    
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
-      # The `follows` keyword in inputs is used for inheritance.
-      # Here, `inputs.nixpkgs` of home-manager is kept consistent with
-      # the `inputs.nixpkgs` of the current flake,
-      # to avoid problems caused by different versions of nixpkgs.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, ... }: {
     nixosConfigurations = {
-      # TODO please change the hostname to your own
       tapnisu-laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         modules = [
-          ./configuration.nix
-
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+          ./hosts/laptop/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
-            # TODO replace ryan with your own username
             home-manager.users.tapnisu = import ./home.nix;
+          }
+        ];
+      };
 
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+      tapnisu-desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/desktop/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.tapnisu = import ./home.nix;
+          }
+        ];
+      };
+
+      tapnisu-laptop-wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          nixos-wsl.nixosModules.default
+          ./hosts/laptop-wsl/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.tapnisu = import ./home.nix;
+          }
+        ];
+      };
+
+      tapnisu-desktop-wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          nixos-wsl.nixosModules.default
+          ./hosts/desktop-wsl/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.tapnisu = import ./home.nix;
           }
         ];
       };
