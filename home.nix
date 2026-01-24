@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, isWSL, ... }:
 
 {
   # TODO please change the username & home directory to your own
@@ -26,16 +26,12 @@
   xdg.configFile."niri/config.kdl".source = ./niri.kdl;
 
   programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
-      vscodevim.vim
-      yzhang.markdown-all-in-one
-    ];
+    enable = if isWSL then false else true;
+    extensions = with pkgs.vscode-extensions; [];
   };
 
   programs.firefox = {
-    enable = true;
+    programs.firefox.enable = if isWSL then false else true;
     package = pkgs.firefox-esr;
     profiles.default = {
       id = 0;
@@ -49,7 +45,7 @@
   };
 
   programs.thunderbird = {
-    enable = true;
+    programs.thunderbird.enable = if isWSL then false else true;
     package = pkgs.thunderbird-esr;
     profiles.default = {
       isDefault = true;

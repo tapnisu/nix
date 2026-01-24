@@ -52,6 +52,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { isWSL = true; };
             home-manager.users.tapnisu = import ./home.nix;
           }
         ];
@@ -66,6 +67,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { isWSL = true; };
             home-manager.users.tapnisu = import ./home.nix;
           }
         ];
