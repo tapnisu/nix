@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  isWSL,
+  isWSL ? false,
   tapciify,
   ...
 }: {
@@ -37,10 +37,7 @@
   };
 
   programs.firefox = {
-    enable =
-      if isWSL
-      then false
-      else true;
+    enable = !isWSL;
     package = pkgs.firefox-esr;
     profiles.default = {
       id = 0;
@@ -54,10 +51,7 @@
   };
 
   programs.thunderbird = {
-    enable =
-      if isWSL
-      then false
-      else true;
+    enable = !isWSL;
     package = pkgs.thunderbird-esr;
     profiles.default = {
       isDefault = true;
