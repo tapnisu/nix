@@ -148,6 +148,9 @@
 
     telegram-desktop
     vencord
+
+    nil
+    alejandra
   ];
 
   programs.mpv.enable = true;
