@@ -4,26 +4,31 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ../common.nix
+      ../common-real-hardware.nix
     ];
 
   networking.hostName = "tapnisu-laptop";
-  networking.networkmanager.enable = true;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
+  swapDevices = [{
+    device = "/swapfile";
+    size = 32 * 1024; # 32GiB
+  }];
 
-  services.tlp.enable = true;
-  services.thermald.enable = true;
+  console.font = "ter-v32n";
+
   services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; # doesn't work tho :p
 
-  programs.niri.enable = true;
-  services.xserver.xkb.layout = "us,ru";
+  # 150% scaling related fixes
+  environment.sessionVariables = {
+    # This fixes blurriness in Electron/Chromium apps
+    NIXOS_OZONE_WL = "1";
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
+    # Optional: Fixes blurriness in Firefox (though usually default now)
+    MOZ_ENABLE_WAYLAND = "1";
+
+    # Optional: Fixes blurriness in Qt apps (like VLC or OBS)
+    QT_QPA_PLATFORM = "wayland;xcb";
   };
 }

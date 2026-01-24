@@ -4,25 +4,15 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ../common.nix
+      ../common-real-hardware.nix
     ];
 
-  networking.hostName = "tapnisu-laptop";
-  networking.networkmanager.enable = true;
+  networking.hostName = "tapnisu-desktop";
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  swapDevices = [{
+    device = "/swapfile";
+    size = 32 * 1024; # 32GiB
+  }];
 
-  services.thermald.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
-
-  programs.niri.enable = true;
-  services.xserver.xkb.layout = "us,ru";
-
-  programs.steam.enable = true;
+  console.font = "ter-v16n";
 }

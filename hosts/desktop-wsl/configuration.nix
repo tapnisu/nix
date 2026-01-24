@@ -1,14 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ../common.nix ];
-
-  wsl.enable = true;
-  wsl.defaultUser = "tapnisu";
-
+  imports = [ ../common-wsl.nix ];
   networking.hostName = "tapnisu-desktop-wsl";
-
-  virtualisation.docker.enable = true;
-
-  programs.nix-ld.enable = true;
 }
