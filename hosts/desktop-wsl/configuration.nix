@@ -10,6 +10,5 @@
 
   virtualisation.docker.enable = true;
 
-  vscode-remote-workaround.enable = true;
-  vscode-remote-workaround.package = pkgs.nodejs_22;
+  programs.nix-ld.enable = true;
 }

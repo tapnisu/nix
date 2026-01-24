@@ -14,12 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vscode-remote-workaround.url = "github:K900/vscode-remote-workaround";
-
     tapciify.url = "github:tapnisu/tapciify";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, tapciify, vscode-remote-workaround, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, tapciify, ... }: {
     nixosConfigurations = {
       tapnisu-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -57,7 +55,6 @@
         modules = [
           nixos-wsl.nixosModules.default
           ./hosts/laptop-wsl/configuration.nix
-          vscode-remote-workaround.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -74,7 +71,6 @@
         modules = [
           nixos-wsl.nixosModules.default
           ./hosts/desktop-wsl/configuration.nix
-	        vscode-remote-workaround.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

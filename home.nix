@@ -23,7 +23,7 @@
   #     xxx
   # '';
 
-  xdg.configFile."niri/config.kdl".source = ./niri.kdl;
+  xdg.configFile."niri/config.kdl".source = ./niri/niri.kdl;
 
   programs.vscode = {
     enable = !isWSL;
@@ -61,7 +61,7 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    tapciify.packages.${pkgs.system}.default
+    tapciify.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     keepassxc
 
