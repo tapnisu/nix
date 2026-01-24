@@ -164,14 +164,6 @@
     };
   };
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.kdePackages.breeze-icons;
-    name = "Breeze_Light";
-    size = 48;
-  };
-
   gtk = {
     enable = true;
     theme = {
@@ -182,12 +174,21 @@
       name = "breeze-dark";
       package = pkgs.kdePackages.breeze-icons;
     };
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
+    cursorTheme = {
+      name = "Breeze_Light";
+      package = pkgs.kdePackages.breeze-icons;
+      size = 48;
     };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.kdePackages.breeze-icons;
+    name = "Breeze_Light";
+    size = 48;
   };
 
   qt = {
@@ -199,6 +200,7 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      cursor-theme = "Breeze_Light";
     };
   };
 
