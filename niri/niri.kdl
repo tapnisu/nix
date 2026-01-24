@@ -268,8 +268,8 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "~/Pictures/Wallpapers/__tohno_akiha_kohaku_hisui_and_yumizuka_satsuki_tsukihime_drawn_by_yakksan__34bf94fed8b9c11c0006850ce3bf214a.jpg" "-m" "fill"
+// spawn-at-startup "waybar"
+spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/__tohno_akiha_kohaku_hisui_and_yumizuka_satsuki_tsukihime_drawn_by_yakksan__34bf94fed8b9c11c0006850ce3bf214a.jpg -m fill"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
