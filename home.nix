@@ -39,6 +39,7 @@
   programs.firefox = {
     enable = !isWSL;
     package = pkgs.firefox-esr;
+    languagePacks = [ "ru" ];
     profiles.default = {
       id = 0;
       name = "default";
