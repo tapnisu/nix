@@ -59,14 +59,6 @@
     };
   };
 
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
-  };
-
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
     EDITOR = "code";
