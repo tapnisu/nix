@@ -85,6 +85,9 @@
     keepassxc
     nautilus
 
+    loupe
+    imv
+
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
 
@@ -219,6 +222,7 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      gtk-theme = "Adwaita-dark";
       cursor-theme = "Breeze_Light";
     };
   };
