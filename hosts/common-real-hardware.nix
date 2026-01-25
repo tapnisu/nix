@@ -6,6 +6,7 @@
   imports = [./common.nix];
 
   networking.networkmanager.enable = true;
+  time.hardwareClockInLocalTime = true; # hi windows
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
