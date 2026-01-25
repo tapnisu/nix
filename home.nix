@@ -83,6 +83,7 @@
     tapciify.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     keepassxc
+    nautilus
 
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them

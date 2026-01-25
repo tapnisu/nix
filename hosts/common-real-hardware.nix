@@ -65,14 +65,6 @@
 
   services.flatpak.enable = true;
 
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
-  };
-
   services.openssh = {
     enable = true;
     openFirewall = true;
@@ -102,6 +94,17 @@
 
   services.gvfs.enable = true;
   services.tumbler.enable = true;
+
+  nixpkgs.overlays = [(self: super: {
+    gnome = super.gnome.overrideScope (gself: gsuper: {
+      nautilus = gsuper.nautilus.overrideAttrs (nsuper: {
+        buildInputs = nsuper.buildInputs ++ (with super.gst_all_1; [
+          gst-plugins-good
+          gst-plugins-bad
+        ]);
+      });
+    });
+  })];
 
   networking.firewall = {
     allowedTCPPorts = [25565];
