@@ -95,16 +95,29 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
-  nixpkgs.overlays = [(self: super: {
-    gnome = super.gnome.overrideScope (gself: gsuper: {
-      nautilus = gsuper.nautilus.overrideAttrs (nsuper: {
-        buildInputs = nsuper.buildInputs ++ (with super.gst_all_1; [
-          gst-plugins-good
-          gst-plugins-bad
-        ]);
+  nixpkgs.overlays = [
+    (self: super: {
+      gnome = super.gnome.overrideScope (gself: gsuper: {
+        nautilus = gsuper.nautilus.overrideAttrs (nsuper: {
+          buildInputs =
+            nsuper.buildInputs
+            ++ (with super.gst_all_1; [
+              gst-plugins-good
+              gst-plugins-bad
+            ]);
+        });
       });
-    });
-  })];
+    })
+  ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+    ];
+    config.common.default = "gtk";
+  };
 
   networking.firewall = {
     allowedTCPPorts = [25565];
