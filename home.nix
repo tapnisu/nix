@@ -145,6 +145,8 @@
 
     nil
     alejandra
+
+    moonlight-qt
   ];
 
   programs.mpv.enable = true;
