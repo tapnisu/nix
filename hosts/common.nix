@@ -20,6 +20,7 @@
     LC_TIME = "ru_RU.UTF-8";
   };
   i18n.supportedLocales = ["all"];
+  environment.variables.LANG = "ru_RU.UTF-8";
 
   environment.systemPackages = with pkgs; [
     neovim

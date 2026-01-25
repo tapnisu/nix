@@ -92,6 +92,9 @@
     };
   };
 
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
+
   networking.firewall = {
     allowedTCPPorts = [25565];
     allowedUDPPorts = [25565];

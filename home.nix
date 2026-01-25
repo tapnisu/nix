@@ -39,7 +39,7 @@
   programs.firefox = {
     enable = !isWSL;
     package = pkgs.firefox-esr;
-    languagePacks = [ "ru" ];
+    languagePacks = ["ru"];
     profiles.default = {
       id = 0;
       name = "default";
@@ -59,9 +59,31 @@
     };
   };
 
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
     EDITOR = "code";
+    BROWSER = "firefox";
+    TERMINAL = "alacritty";
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = ["thunar.desktop"];
+      "text/html" = ["firefox.desktop"];
+      "x-scheme-handler/http" = ["firefox.desktop"];
+      "x-scheme-handler/https" = ["firefox.desktop"];
+      "x-scheme-handler/about" = ["firefox.desktop"];
+      "x-scheme-handler/unknown" = ["firefox.desktop"];
+    };
   };
 
   # Packages that should be installed to the user profile.
@@ -147,6 +169,7 @@
     alejandra
 
     moonlight-qt
+    obsidian
   ];
 
   programs.mpv.enable = true;
