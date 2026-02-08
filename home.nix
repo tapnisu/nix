@@ -197,7 +197,7 @@
       user = {
         name = "Aleksei Rybin";
         email = "aleksei@tapni.su";
-        signingkey = "08AB2A9B83C7ED9F";
+        signingkey = "88BD146ACA855A59";
       };
       init.defaultBranch = "main";
       pull.rebase = true;
