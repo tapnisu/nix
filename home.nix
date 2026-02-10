@@ -73,7 +73,7 @@
 
   programs.zed-editor = {
     enable = true;
-    extensions = [ "nix" "toml" "rust" ];
+    extensions = ["nix" "toml" "rust"];
     userSettings = {
       autosave = "on_focus_change";
       auto_update = false;
@@ -100,8 +100,6 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     tapciify.packages.${pkgs.stdenv.hostPlatform.system}.default
-
-    zed
 
     keepassxc
     nautilus
