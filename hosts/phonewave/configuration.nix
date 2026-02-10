@@ -5,7 +5,6 @@
 }: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
   time.timeZone = "Asia/Krasnoyarsk";
-  networking.hostName = "tapnisu-phonewave";
   android-integration.termux-setup-storage.enable = true;
   user.userName = "tapnisu";
 
