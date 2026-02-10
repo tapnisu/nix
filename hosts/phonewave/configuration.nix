@@ -3,7 +3,9 @@
   pkgs,
   ...
 }: {
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
   time.timeZone = "Asia/Krasnoyarsk";
   android-integration.termux-setup-storage.enable = true;
   user.userName = "tapnisu";
