@@ -3,6 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [../common.nix];
+  imports = [../common-droid.nix];
   networking.hostName = "tapnisu-phonewave";
 }
