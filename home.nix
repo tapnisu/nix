@@ -99,6 +99,8 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    dconf
+
     tapciify.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     keepassxc
