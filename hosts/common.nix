@@ -1,10 +1,18 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
+
+  nix.settings = {
+    substituters = lib.mkForce [
+      "https://nixos-cache-proxy.cofob.dev"
+    ];
+    flake-registry = "";
+  };
 
   time.timeZone = "Asia/Krasnoyarsk";
   i18n.defaultLocale = "ru_RU.UTF-8";
