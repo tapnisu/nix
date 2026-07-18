@@ -14,11 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/prerelease-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     tapciify.url = "github:tapnisu/tapciify";
   };
 
@@ -26,7 +21,6 @@
     nixpkgs,
     home-manager,
     nixos-wsl,
-    nix-on-droid,
     tapciify,
     ...
   }: {
@@ -103,25 +97,6 @@
               isWSL = true;
             };
             home-manager.users.tapnisu = import ./home.nix;
-          }
-        ];
-      };
-    };
-
-    nixOnDroidConfigurations = {
-      tapnisu-phonewave = nix-on-droid.lib.nixOnDroidConfiguration {
-        pkgs = import nixpkgs {
-          system = "aarch64-linux";
-        };
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/phonewave/configuration.nix
-          {
-            home-manager.config = ./home.nix;
-            home-manager.extraSpecialArgs = {
-              inherit tapciify;
-              isWSL = false;
-            };
           }
         ];
       };
