@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   isWSL ? false,
   tapciify,
   ...
@@ -54,13 +55,19 @@
 
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
-    EDITOR = "zed";
-    BROWSER = "firefox";
+    EDITOR =
+      if isWSL
+      then "nvim"
+      else "zed";
+    BROWSER =
+      if isWSL
+      then "wslview"
+      else "firefox";
     TERMINAL = "alacritty";
   };
 
   xdg.mimeApps = {
-    enable = true;
+    enable = !isWSL;
     defaultApplications = {
       "inode/directory" = ["thunar.desktop"];
       "text/html" = ["firefox.desktop"];
@@ -72,7 +79,7 @@
   };
 
   programs.zed-editor = {
-    enable = true;
+    enable = !isWSL;
     extensions = ["nix" "toml" "rust"];
     userSettings = {
       autosave = "on_focus_change";
@@ -98,96 +105,101 @@
   };
 
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    dconf
+  home.packages = with pkgs;
+    [
+      dconf
 
-    tapciify.packages.${pkgs.stdenv.hostPlatform.system}.default
+      tapciify.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-    keepassxc
-    nautilus
+      # here is some command line tools I use frequently
+      # feel free to add your own or remove some of them
 
-    loupe
-    imv
+      nnn # terminal file manager
 
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
+      # archives
+      zip
+      xz
+      unzip
+      p7zip
 
-    nnn # terminal file manager
+      # utils
+      ripgrep # recursively searches directories for a regex pattern
+      jq # A lightweight and flexible command-line JSON processor
+      yq-go # yaml processor https://github.com/mikefarah/yq
+      eza # A modern replacement for ‘ls’
+      fzf # A command-line fuzzy finder
 
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
+      # networking tools
+      mtr # A network diagnostic tool
+      iperf3
+      dnsutils # `dig` + `nslookup`
+      ldns # replacement of `dig`, it provide the command `drill`
+      aria2 # A lightweight multi-protocol & multi-source command-line download utility
+      socat # replacement of openbsd-netcat
+      nmap # A utility for network discovery and security auditing
+      ipcalc # it is a calculator for the IPv4/v6 addresses
 
-    # utils
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
-    yq-go # yaml processor https://github.com/mikefarah/yq
-    eza # A modern replacement for ‘ls’
-    fzf # A command-line fuzzy finder
+      # misc
+      cowsay
+      file
+      which
+      tree
+      gnused
+      gnutar
+      gawk
+      zstd
+      gnupg
 
-    # networking tools
-    mtr # A network diagnostic tool
-    iperf3
-    dnsutils # `dig` + `nslookup`
-    ldns # replacement of `dig`, it provide the command `drill`
-    aria2 # A lightweight multi-protocol & multi-source command-line download utility
-    socat # replacement of openbsd-netcat
-    nmap # A utility for network discovery and security auditing
-    ipcalc # it is a calculator for the IPv4/v6 addresses
+      # nix related
+      #
+      # it provides the command `nom` works just like `nix`
+      # with more details log output
+      nix-output-monitor
 
-    # misc
-    cowsay
-    file
-    which
-    tree
-    gnused
-    gnutar
-    gawk
-    zstd
-    gnupg
+      # productivity
+      hugo # static site generator
+      glow # markdown previewer in terminal
 
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
+      fastfetch
 
-    # productivity
-    hugo # static site generator
-    glow # markdown previewer in terminal
+      htop
+      btop # replacement of htop/nmon
+      iotop # io monitoring
+      iftop # network monitoring
 
-    fastfetch
+      # system call monitoring
+      strace # system call monitoring
+      ltrace # library call monitoring
+      lsof # list open files
 
-    htop
-    btop # replacement of htop/nmon
-    iotop # io monitoring
-    iftop # network monitoring
+      # system tools
+      sysstat
+      lm_sensors # for `sensors` command
+      ethtool
+      pciutils # lspci
+      usbutils # lsusb
 
-    # system call monitoring
-    strace # system call monitoring
-    ltrace # library call monitoring
-    lsof # list open files
+      swaybg
 
-    # system tools
-    sysstat
-    lm_sensors # for `sensors` command
-    ethtool
-    pciutils # lspci
-    usbutils # lsusb
-
-    swaybg
-
-    telegram-desktop
-    vencord
-
-    nil
-    alejandra
-
-    moonlight-qt
-    obsidian
-  ];
+      nil
+      alejandra
+    ]
+    ++ lib.optionals isWSL [
+      (pkgs.writeShellScriptBin "wslview" ''
+        exec cmd.exe /c start "" "$@"
+      '')
+    ]
+    ++ lib.optionals (!isWSL) [
+      keepassxc
+      nautilus
+      loupe
+      imv
+      swaybg
+      telegram-desktop
+      vencord
+      moonlight-qt
+      obsidian
+    ];
 
   programs.mpv.enable = true;
 
@@ -289,7 +301,7 @@
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
-    enable = true;
+    enable = !isWSL;
     # custom settings
     settings = {
       env.TERM = "xterm-256color";
@@ -314,11 +326,11 @@
   };
 
   programs.waybar = {
-    enable = true;
+    enable = !isWSL;
   };
 
   programs.fuzzel = {
-    enable = true;
+    enable = !isWSL;
     settings = {
       main = {
         terminal = "${pkgs.alacritty}/bin/alacritty";
@@ -364,6 +376,24 @@
       plugins = ["git"];
       theme = "robbyrussell";
     };
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+    icons = "auto";
+    extraOptions = ["--group-directories-first" "--header"];
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    enableZshIntegration = true;
   };
 
   # This value determines the home Manager release that your
