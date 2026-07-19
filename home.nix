@@ -268,7 +268,7 @@
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
       "kohaku" = {
         hostname = "kohaku.tapni.su";
         user = "tapnisu";
