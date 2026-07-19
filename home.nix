@@ -199,6 +199,7 @@
       vencord
       moonlight-qt
       obsidian
+      readest
     ];
 
   programs.mpv.enable = true;
