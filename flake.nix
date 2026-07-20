@@ -47,7 +47,6 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
               inherit tapciify;
-              isWSL = false;
             };
             home-manager.users.tapnisu = import ./home.nix;
           }
@@ -65,7 +64,6 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
               inherit tapciify;
-              isWSL = false;
             };
             home-manager.users.tapnisu = import ./home.nix;
           }
@@ -124,7 +122,7 @@
             home-manager.config = ./home.nix;
             home-manager.extraSpecialArgs = {
               inherit tapciify;
-              isWSL = false;
+              isWSL = true;
             };
           }
         ];
