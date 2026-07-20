@@ -19,6 +19,7 @@
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/prerelease-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     tapciify.url = "github:tapnisu/tapciify";
