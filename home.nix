@@ -6,6 +6,8 @@
   tapciify,
   ...
 }: {
+  nixpkgs.config.allowUnfree = true;
+
   # TODO please change the username & home directory to your own
   home.username = lib.mkDefault "tapnisu";
   home.homeDirectory = lib.mkDefault "/home/tapnisu";
@@ -33,6 +35,7 @@
   programs.firefox = {
     enable = !isWSL;
     package = pkgs.firefox-esr;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     languagePacks = ["ru"];
     profiles.default = {
       id = 0;
