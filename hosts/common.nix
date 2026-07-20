@@ -13,6 +13,7 @@
     ];
     flake-registry = "";
   };
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   time.timeZone = "Asia/Krasnoyarsk";
   i18n.defaultLocale = "ru_RU.UTF-8";
