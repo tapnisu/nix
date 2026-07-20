@@ -214,7 +214,10 @@
       };
       init.defaultBranch = "main";
       pull.rebase = true;
-      core.editor = "zed --wait";
+      core.editor =
+        if isWSL
+        then "wslview"
+        else "firefox";
       commit.gpgsign = true;
       tag.gpgsign = true;
     };
@@ -374,7 +377,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = ["git"];
       theme = "robbyrussell";
     };
   };
