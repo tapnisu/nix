@@ -6,29 +6,8 @@
   tapciify,
   ...
 }: {
-  nixpkgs.config.allowUnfree = true;
-
-  # TODO please change the username & home directory to your own
   home.username = lib.mkDefault "tapnisu";
   home.homeDirectory = lib.mkDefault "/home/tapnisu";
-
-  # Import files from the current configuration directory into the Nix store,
-  # and create symbolic links pointing to those store files in the Home directory.
-
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-  # Import the scripts directory into the Nix store,
-  # and recursively generate symbolic links in the Home directory pointing to the files in the store.
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
 
   xdg.configFile."niri/config.kdl".source = ./niri/niri.kdl;
 
@@ -182,8 +161,6 @@
       pciutils # lspci
       usbutils # lsusb
 
-      swaybg
-
       nil
       alejandra
     ]
@@ -262,7 +239,7 @@
     style.name = "adwaita-dark";
   };
 
-  dconf.settings = {
+  dconf.settings = lib.mkIf (!isWSL) {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       gtk-theme = "Adwaita-dark";
