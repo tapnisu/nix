@@ -47,6 +47,7 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
               inherit tapciify;
+              isWSL = false;
             };
             home-manager.users.tapnisu = import ./home.nix;
           }
@@ -64,6 +65,27 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
               inherit tapciify;
+              isWSL = false;
+            };
+            home-manager.users.tapnisu = import ./home.nix;
+          }
+        ];
+      };
+
+      virtual-poop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/virtual-poop/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              inherit tapciify;
+              isWSL = false;
             };
             home-manager.users.tapnisu = import ./home.nix;
           }
