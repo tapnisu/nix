@@ -85,10 +85,10 @@ input {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    mode "1920x955@59.999"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
+    scale 1
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -270,6 +270,11 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
 spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/__tohno_akiha_kohaku_hisui_and_yumizuka_satsuki_tsukihime_drawn_by_yakksan__34bf94fed8b9c11c0006850ce3bf214a.jpg -m fill"
+
+cursor {
+    xcursor-theme "Breeze_Light"
+    xcursor-size 24
+}
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
