@@ -10,6 +10,9 @@
   home.homeDirectory = lib.mkDefault "/home/tapnisu";
 
   xdg.configFile."niri/config.kdl".source = ./niri/niri.kdl;
+  xdg.userDirs.setSessionVariables = true;
+
+  fonts.fontconfig.enable = true;
 
   programs.firefox = {
     enable = !isWSL;
@@ -48,15 +51,18 @@
     TERMINAL = "alacritty";
   };
 
-  xdg.mimeApps = {
-    enable = !isWSL;
-    defaultApplications = {
-      "inode/directory" = ["thunar.desktop"];
-      "text/html" = ["firefox.desktop"];
-      "x-scheme-handler/http" = ["firefox.desktop"];
-      "x-scheme-handler/https" = ["firefox.desktop"];
-      "x-scheme-handler/about" = ["firefox.desktop"];
-      "x-scheme-handler/unknown" = ["firefox.desktop"];
+  xdg = {
+    userDirs.enable = true;
+    mimeApps = {
+      enable = !isWSL;
+      defaultApplications = {
+        "inode/directory" = ["thunar.desktop"];
+        "text/html" = ["firefox.desktop"];
+        "x-scheme-handler/http" = ["firefox.desktop"];
+        "x-scheme-handler/https" = ["firefox.desktop"];
+        "x-scheme-handler/about" = ["firefox.desktop"];
+        "x-scheme-handler/unknown" = ["firefox.desktop"];
+      };
     };
   };
 
@@ -89,8 +95,6 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs;
     [
-      dconf
-
       tapciify.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       # here is some command line tools I use frequently
@@ -108,8 +112,6 @@
       ripgrep # recursively searches directories for a regex pattern
       jq # A lightweight and flexible command-line JSON processor
       yq-go # yaml processor https://github.com/mikefarah/yq
-      eza # A modern replacement for ‘ls’
-      fzf # A command-line fuzzy finder
 
       # networking tools
       mtr # A network diagnostic tool
@@ -190,14 +192,11 @@
       user = {
         name = "Aleksei Rybin";
         email = "aleksei@tapni.su";
-        signingkey = "88BD146ACA855A59";
+        signingkey = "4DED407482DB6E6E";
       };
       init.defaultBranch = "main";
       pull.rebase = true;
-      core.editor =
-        if isWSL
-        then "wslview"
-        else "firefox";
+      core.editor = config.home.sessionVariables.EDITOR;
       commit.gpgsign = true;
       tag.gpgsign = true;
     };
@@ -239,11 +238,14 @@
     style.name = "adwaita-dark";
   };
 
-  dconf.settings = lib.mkIf (!isWSL) {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      gtk-theme = "Adwaita-dark";
-      cursor-theme = "Breeze_Light";
+  dconf = {
+    enable = !isWSL;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        gtk-theme = "Adwaita-dark";
+        cursor-theme = "Breeze_Light";
+      };
     };
   };
 
