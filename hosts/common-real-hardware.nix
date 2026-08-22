@@ -46,26 +46,12 @@
 
   environment.systemPackages = with pkgs; [
     xwayland-satellite
-    gamescope-wsi
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka
     nerd-fonts.iosevka-term
   ];
-
-  programs.steam = {
-    enable = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-
-  programs.gamescope = {
-    enable = true;
-    capSysNice = false;
-  };
-
-  programs.gamemode.enable = true;
 
   services.flatpak.enable = true;
 
