@@ -32,101 +32,76 @@
     nix-on-droid,
     tapciify,
     ...
-  }: {
+  }: let
+    mkSystem = {
+      hostname,
+      system ? "x86_64-linux",
+      extraModules ? [],
+      homeModules ? [./modules/home/common/default.nix],
+    }:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules =
+          [
+            ./hosts/${hostname}/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit tapciify;
+              };
+              home-manager.users.tapnisu = {
+                imports = homeModules;
+              };
+            }
+          ]
+          ++ extraModules;
+      };
+  in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
 
     nixosConfigurations = {
-      tapnisu-laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/laptop/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit tapciify;
-              isWSL = false;
-            };
-            home-manager.users.tapnisu = import ./home.nix;
-          }
+      tapnisu-laptop = mkSystem {
+        hostname = "laptop";
+        homeModules = [
+          ./modules/home/common/default.nix
+          ./modules/home/desktop/default.nix
         ];
       };
 
-      tapnisu-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/desktop/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit tapciify;
-              isWSL = false;
-            };
-            home-manager.users.tapnisu = import ./home.nix;
-          }
+      tapnisu-desktop = mkSystem {
+        hostname = "desktop";
+        homeModules = [
+          ./modules/home/common/default.nix
+          ./modules/home/desktop/default.nix
         ];
       };
 
-      virtual-poop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./hosts/virtual-poop/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit tapciify;
-              isWSL = false;
-            };
-            home-manager.users.tapnisu = import ./home.nix;
-          }
+      virtual-poop = mkSystem {
+        hostname = "virtual-poop";
+        homeModules = [
+          ./modules/home/common/default.nix
+          ./modules/home/desktop/default.nix
         ];
       };
 
-      tapnisu-laptop-wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          nixos-wsl.nixosModules.default
-          ./hosts/laptop-wsl/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit tapciify;
-              isWSL = true;
-            };
-            home-manager.users.tapnisu = import ./home.nix;
-          }
+      tapnisu-laptop-wsl = mkSystem {
+        hostname = "laptop-wsl";
+        extraModules = [nixos-wsl.nixosModules.default];
+        homeModules = [
+          ./modules/home/common/default.nix
+          ./modules/home/wsl/default.nix
         ];
       };
 
-      tapnisu-desktop-wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          nixos-wsl.nixosModules.default
-          ./hosts/desktop-wsl/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit tapciify;
-              isWSL = true;
-            };
-            home-manager.users.tapnisu = import ./home.nix;
-          }
+      tapnisu-desktop-wsl = mkSystem {
+        hostname = "desktop-wsl";
+        extraModules = [nixos-wsl.nixosModules.default];
+        homeModules = [
+          ./modules/home/common/default.nix
+          ./modules/home/wsl/default.nix
         ];
       };
     };
@@ -141,10 +116,13 @@
         modules = [
           ./hosts/phonewave/configuration.nix
           {
-            home-manager.config = ./home.nix;
+            home-manager.config = {
+              imports = [
+                ./modules/home/common/default.nix
+              ];
+            };
             home-manager.extraSpecialArgs = {
               inherit tapciify;
-              isWSL = true;
             };
           }
         ];
