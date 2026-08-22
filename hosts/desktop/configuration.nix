@@ -16,6 +16,4 @@
       size = 32 * 1024; # 32GiB
     }
   ];
-
-  console.font = "ter-v16n";
 }

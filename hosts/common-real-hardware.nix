@@ -36,6 +36,7 @@
 
   console = {
     packages = with pkgs; [terminus_font];
+    font = "ter-v16n";
     useXkbConfig = true;
   };
 
