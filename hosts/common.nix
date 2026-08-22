@@ -15,6 +15,8 @@
       substituters = lib.mkForce [
         "https://nixos-cache-proxy.cofob.dev"
       ];
+
+      trusted-users = ["tapnisu"];
     };
 
     gc = {
