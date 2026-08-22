@@ -3,7 +3,10 @@
   pkgs,
   ...
 }: {
-  imports = [./common.nix];
+  imports = [
+    ./common.nix
+    ../modules/hosts/greetd.nix
+  ];
 
   networking.networkmanager.enable = true;
   time.hardwareClockInLocalTime = true; # hi windows
