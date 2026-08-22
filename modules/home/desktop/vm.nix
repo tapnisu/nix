@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  xdg.configFile."niri/config.kdl".source = ../../../niri/niri.kdl;
+  xdg.configFile."niri/config.kdl".source = ./niri/niri.kdl;
 
   programs.waybar = {
     enable = true;
