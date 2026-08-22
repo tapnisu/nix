@@ -1,10 +1,10 @@
 {
   pkgs,
-  tapciify,
+  inputs,
   ...
 }: {
   home.packages = with pkgs; [
-    tapciify.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.tapciify.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     nnn # terminal file manager
 

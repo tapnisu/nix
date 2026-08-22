@@ -1,10 +1,10 @@
 {
-  niri,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
-    niri.homeModules.niri
+    inputs.niri.homeModules.niri
     ./binds.nix
   ];
 

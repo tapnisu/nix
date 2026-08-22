@@ -7,6 +7,7 @@
     ./thunderbird.nix
     ./vm.nix
     ./zed.nix
+    ./spicetify.nix
   ];
 
   xdg.mimeApps.defaultApplications = {

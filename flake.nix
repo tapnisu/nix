@@ -30,9 +30,6 @@
     home-manager,
     nixos-wsl,
     nix-on-droid,
-    tapciify,
-    niri,
-    spicetify-nix,
     ...
   }: let
     mkSystem = {
@@ -52,8 +49,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit tapciify;
-                inherit niri;
+                inherit inputs;
               };
               home-manager.users.tapnisu = {
                 imports = homeModules;
@@ -125,7 +121,7 @@
               ];
             };
             home-manager.extraSpecialArgs = {
-              inherit tapciify;
+              inherit inputs;
             };
           }
         ];
