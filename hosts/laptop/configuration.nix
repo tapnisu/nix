@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -17,7 +18,7 @@
     }
   ];
 
-  console.font = "ter-v32n";
+  console.font = lib.mkDefault "ter-v32n";
 
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;

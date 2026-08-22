@@ -19,19 +19,6 @@
         };
       };
 
-      outputs."Virtual-1" = {
-        mode = {
-          width = 1280;
-          height = 720;
-          refresh = 60.0;
-        };
-        scale = 1.0;
-        position = {
-          x = 0;
-          y = 0;
-        };
-      };
-
       layout = {
         gaps = 16;
         center-focused-column = "never";

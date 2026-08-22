@@ -67,6 +67,7 @@
         homeModules = [
           ./modules/home/common/default.nix
           ./modules/home/desktop/default.nix
+          ./modules/home/monitor-config/laptop.nix
         ];
       };
 
@@ -75,6 +76,7 @@
         homeModules = [
           ./modules/home/common/default.nix
           ./modules/home/desktop/default.nix
+          ./modules/home/monitor-config/desktop.nix
         ];
       };
 
@@ -83,6 +85,7 @@
         homeModules = [
           ./modules/home/common/default.nix
           ./modules/home/desktop/default.nix
+          ./modules/home/monitor-config/virtual-poop.nix
         ];
       };
 
