@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  xdg.configFile."niri/config.kdl".source = ./niri/niri.kdl;
+  imports = [./niri/default.nix];
 
   programs.waybar = {
     enable = true;

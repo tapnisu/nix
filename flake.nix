@@ -1,8 +1,6 @@
 {
   description = "NixOS configuration";
 
-  nixConfig.substituters = ["https://nixos-cache-proxy.cofob.dev"];
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
@@ -23,6 +21,8 @@
     };
 
     tapciify.url = "github:tapnisu/tapciify";
+    niri.url = "github:sodiboo/niri-flake";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs = inputs @ {
@@ -31,6 +31,8 @@
     nixos-wsl,
     nix-on-droid,
     tapciify,
+    niri,
+    spicetify-nix,
     ...
   }: let
     mkSystem = {
@@ -51,6 +53,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit tapciify;
+                inherit niri;
               };
               home-manager.users.tapnisu = {
                 imports = homeModules;
