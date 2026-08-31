@@ -22,7 +22,7 @@
 
     tapciify.url = "github:tapnisu/tapciify";
     niri.url = "github:sodiboo/niri-flake";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    fastpotify.url = "github:crmne/fastpotify";
   };
 
   outputs = inputs @ {

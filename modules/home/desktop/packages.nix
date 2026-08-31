@@ -1,5 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
+    inputs.fastpotify.packages.${pkgs.stdenv.hostPlatform.system}.default
+
     keepassxc
     nautilus
     loupe
