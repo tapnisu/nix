@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    inputs.fastpotify.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.spotifast.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     keepassxc
     nautilus
