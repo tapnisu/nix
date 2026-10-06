@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     ../common-real-hardware.nix
+    ../../modules/hosts/gaming.nix
   ];
 
   networking.hostName = "tapnisu-laptop";
