@@ -11,16 +11,21 @@
   networking.networkmanager.enable = true;
   time.hardwareClockInLocalTime = true; # hi windows
 
-  boot.loader = {
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      useOSProber = true;
-      configurationLimit = 5;
+  boot = {
+    supportedFilesystems = ["ntfs"];
+    loader = {
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+        useOSProber = true;
+        configurationLimit = 5;
+      };
+      efi.canTouchEfiVariables = true;
     };
-    efi.canTouchEfiVariables = true;
   };
+
+  services.udisks2.enable = true;
 
   services.thermald.enable = true;
 
@@ -53,6 +58,7 @@
 
   environment.systemPackages = with pkgs; [
     xwayland-satellite
+    ntfs3g
   ];
 
   fonts.packages = with pkgs; [
