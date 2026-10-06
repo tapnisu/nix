@@ -34,7 +34,4 @@
     # Optional: Fixes blurriness in Qt apps (like VLC or OBS)
     QT_QPA_PLATFORM = "wayland;xcb";
   };
-
-  # 100 MB efi hack
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 }
