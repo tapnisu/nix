@@ -11,9 +11,16 @@
   networking.networkmanager.enable = true;
   time.hardwareClockInLocalTime = true; # hi windows
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+      configurationLimit = 5;
+    };
+    efi.canTouchEfiVariables = true;
+  };
 
   services.thermald.enable = true;
 
