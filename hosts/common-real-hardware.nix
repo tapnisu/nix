@@ -18,6 +18,7 @@
       efiSupport = true;
       useOSProber = true;
       configurationLimit = 5;
+      copyKernels = false;
     };
     efi.canTouchEfiVariables = true;
   };
