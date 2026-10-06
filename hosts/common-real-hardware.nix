@@ -82,6 +82,7 @@
 
   services.syncthing = {
     enable = true;
+    tray = true;
     openDefaultPorts = true;
 
     user = "tapnisu";
