@@ -63,7 +63,7 @@
   users.users.tapnisu = {
     isNormalUser = true;
     description = "Aleksei Rybin";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "storage"];
     shell = pkgs.zsh;
 
     openssh.authorizedKeys.keys = [
