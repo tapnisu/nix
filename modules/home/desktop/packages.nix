@@ -17,5 +17,7 @@
     obsidian
     readest
     prismlauncher
+    throne
+    vesktop
   ];
 }
