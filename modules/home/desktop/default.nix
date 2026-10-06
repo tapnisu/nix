@@ -5,6 +5,7 @@
     ./firefox.nix
     ./mpv.nix
     ./packages.nix
+    ./polkit.nix
     ./thunderbird.nix
     ./vm.nix
     ./zed.nix
