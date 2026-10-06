@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
     ../common-real-hardware.nix
     ../../modules/hosts/gaming.nix
+    ../../modules/syncthing/laptop.nix
   ];
 
   networking.hostName = "tapnisu-laptop";

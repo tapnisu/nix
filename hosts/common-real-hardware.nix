@@ -81,8 +81,8 @@
     user = "tapnisu";
     group = "users";
 
-    configDir = "/home/tapnisu/.config/syncthing";
     settings = {
+      gui.user = "tapnisu";
       options = {
         urAccepted = -1;
       };
