@@ -22,7 +22,7 @@
     fsType = "ext4";
   };
 
-  fileSystems."/boot" = {
+  fileSystems."/boot/efi" = {
     device = "/dev/disk/by-uuid/BCC7-C139";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];

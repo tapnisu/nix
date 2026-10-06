@@ -29,11 +29,12 @@
   environment.sessionVariables = {
     # This fixes blurriness in Electron/Chromium apps
     NIXOS_OZONE_WL = "1";
-
     # Optional: Fixes blurriness in Firefox (though usually default now)
     MOZ_ENABLE_WAYLAND = "1";
-
     # Optional: Fixes blurriness in Qt apps (like VLC or OBS)
     QT_QPA_PLATFORM = "wayland;xcb";
   };
+
+  # 100 MB efi hack
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 }
