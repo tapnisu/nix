@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./alacritty.nix
+    ./discord.nix
     ./firefox.nix
     ./mpv.nix
     ./packages.nix
