@@ -3,6 +3,7 @@
     ./alacritty.nix
     ./discord.nix
     ./firefox.nix
+    ./lutris.nix
     ./mpv.nix
     ./packages.nix
     ./polkit.nix
