@@ -10,6 +10,10 @@
       hotkey-overlay.title = "Run an Application: fuzzel";
       action.spawn = "fuzzel";
     };
+    "Mod+E" = {
+      hotkey-overlay.title = "Run an Application: nautilus";
+      action.spawn = "nautilus";
+    };
     "Super+Alt+L" = {
       hotkey-overlay.title = "Lock the Screen: swaylock";
       action.spawn = "swaylock";
