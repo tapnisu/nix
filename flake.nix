@@ -36,7 +36,7 @@
       hostname,
       system ? "x86_64-linux",
       extraModules ? [],
-      homeModules ? [./modules/home/common/default.nix],
+      homeModules ? [./modules/home/common],
     }:
       nixpkgs.lib.nixosSystem {
         inherit system;
@@ -65,8 +65,8 @@
       tapnisu-laptop = mkSystem {
         hostname = "laptop";
         homeModules = [
-          ./modules/home/common/default.nix
-          ./modules/home/desktop/default.nix
+          ./modules/home/common
+          ./modules/home/desktop
           ./modules/home/monitor-config/laptop.nix
         ];
       };
@@ -74,8 +74,8 @@
       tapnisu-desktop = mkSystem {
         hostname = "desktop";
         homeModules = [
-          ./modules/home/common/default.nix
-          ./modules/home/desktop/default.nix
+          ./modules/home/common
+          ./modules/home/desktop
           ./modules/home/monitor-config/desktop.nix
         ];
       };
@@ -83,8 +83,8 @@
       virtual-poop = mkSystem {
         hostname = "virtual-poop";
         homeModules = [
-          ./modules/home/common/default.nix
-          ./modules/home/desktop/default.nix
+          ./modules/home/common
+          ./modules/home/desktop
           ./modules/home/monitor-config/virtual-poop.nix
         ];
       };
@@ -93,8 +93,8 @@
         hostname = "laptop-wsl";
         extraModules = [nixos-wsl.nixosModules.default];
         homeModules = [
-          ./modules/home/common/default.nix
-          ./modules/home/wsl/default.nix
+          ./modules/home/common
+          ./modules/home/wsl
         ];
       };
 
@@ -102,8 +102,8 @@
         hostname = "desktop-wsl";
         extraModules = [nixos-wsl.nixosModules.default];
         homeModules = [
-          ./modules/home/common/default.nix
-          ./modules/home/wsl/default.nix
+          ./modules/home/common
+          ./modules/home/wsl
         ];
       };
     };
@@ -120,7 +120,7 @@
           {
             home-manager.config = {
               imports = [
-                ./modules/home/common/default.nix
+                ./modules/home/common
               ];
             };
             home-manager.extraSpecialArgs = {

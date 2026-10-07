@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./niri/default.nix];
+  imports = [./niri];
 
   programs.waybar = {
     enable = true;
