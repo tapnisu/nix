@@ -8,6 +8,7 @@
     ../common-real-hardware.nix
     ../../modules/hosts/gaming.nix
     ../../modules/hosts/obs.nix
+    ../../modules/hosts/nvidia
   ];
 
   networking.hostName = "tapnisu-desktop";
