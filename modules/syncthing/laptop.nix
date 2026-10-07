@@ -20,5 +20,20 @@
       path = "~/.local/share/Steam/steamapps/common/MELTY BLOOD TYPE LUMINA/Replay";
       devices = ["Tapnisu Desktop" "Kohaku"];
     };
+    "Readest Books" = {
+      id = "vkiuw-ajunr";
+      path = "~/.local/share/com.bilingify.readest/Readest/Books";
+      devices = ["Tapnisu Desktop" "Kohaku"];
+    };
+    "Steam Grid" = {
+      id = "9phis-fsh6t";
+      path = "~/.local/share/Steam/userdata/471257832/config/grid";
+      devices = ["Tapnisu Desktop"];
+    };
+    "Steam Screenshots" = {
+      id = "wag33-nh4z6";
+      path = "~/.local/share/Steam/userdata/471257832/760";
+      devices = ["Tapnisu Desktop" "Kohaku"];
+    };
   };
 }
