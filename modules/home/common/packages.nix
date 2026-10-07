@@ -60,5 +60,7 @@
 
     nil
     alejandra
+
+    ffmpeg-full # no nvidia features
   ];
 }
