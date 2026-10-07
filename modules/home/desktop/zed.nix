@@ -22,6 +22,16 @@
         dark = "Gruvbox Dark Hard";
       };
       buffer_font_family = "Iosevka Nerd Font";
+      languages = {
+        Nix = {
+          formatter = {
+            external = {
+              command = "nix";
+              arguments = ["fmt" "--" "-"];
+            };
+          };
+        };
+      };
     };
   };
 
