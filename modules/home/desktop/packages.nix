@@ -19,5 +19,6 @@
     prismlauncher
     throne
     vesktop
+    qbittorrent
   ];
 }
