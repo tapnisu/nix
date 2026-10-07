@@ -7,6 +7,7 @@
     ./hardware-configuration.nix
     ../common-real-hardware.nix
     ../../modules/hosts/gaming.nix
+    ../../modules/hosts/obs.nix
   ];
 
   networking.hostName = "tapnisu-desktop";
