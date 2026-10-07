@@ -20,5 +20,6 @@
     throne
     vesktop
     qbittorrent
+    trackma-qt
   ];
 }

@@ -1,6 +1,7 @@
 {...}: {
   imports = [
-    ./ffmpeg.nix
+    # works without Unfree = true?
+    # ./ffmpeg.nix
     ./obs.nix
   ];
 
