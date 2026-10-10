@@ -8,6 +8,7 @@
     ./mpv.nix
     ./packages.nix
     ./polkit.nix
+    ./throne.nix
     ./thunderbird.nix
     ./vm.nix
     ./zed.nix
