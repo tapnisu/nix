@@ -14,6 +14,10 @@
       hotkey-overlay.title = "Run an Application: nautilus";
       action.spawn = "nautilus";
     };
+    "Mod+B" = {
+      hotkey-overlay.title = "Run an Application: firefox";
+      action.spawn = "firefox";
+    };
     "Super+Alt+L" = {
       hotkey-overlay.title = "Lock the Screen: swaylock";
       action.spawn = "swaylock";
