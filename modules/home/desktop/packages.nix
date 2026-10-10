@@ -20,8 +20,6 @@
     readest
     prismlauncher
     throne
-    vesktop
     qbittorrent
-    trackma-qt
   ];
 }

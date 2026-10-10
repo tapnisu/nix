@@ -10,6 +10,7 @@
     ./polkit.nix
     ./throne.nix
     ./thunderbird.nix
+    ./trackma
     ./vm.nix
     ./zed.nix
   ];
