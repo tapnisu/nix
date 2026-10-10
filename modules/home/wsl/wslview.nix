@@ -1,34 +1,15 @@
-{pkgs, ...}: let
-  wslview = pkgs.writeShellScriptBin "wslview" ''
-    exec cmd.exe /c start "" "$@"
-  '';
-in {
-  home.packages = [wslview];
+{pkgs, ...}: {
+  home.packages = [pkgs.wsl-open];
 
   home.sessionVariables = {
-    BROWSER = "wslview";
-  };
-
-  xdg.desktopEntries.wslview = {
-    name = "wslview";
-    comment = "Open URL in default Windows browser";
-    exec = "${wslview}/bin/wslview %u";
-    terminal = false;
-    type = "Application";
-    mimeTypes = [
-      "text/html"
-      "x-scheme-handler/http"
-      "x-scheme-handler/https"
-      "x-scheme-handler/about"
-      "x-scheme-handler/unknown"
-    ];
+    BROWSER = "wsl-open";
   };
 
   xdg.mimeApps.defaultApplications = {
-    "text/html" = ["wslview.desktop"];
-    "x-scheme-handler/http" = ["wslview.desktop"];
-    "x-scheme-handler/https" = ["wslview.desktop"];
-    "x-scheme-handler/about" = ["wslview.desktop"];
-    "x-scheme-handler/unknown" = ["wslview.desktop"];
+    "text/html" = ["wsl-open.desktop"];
+    "x-scheme-handler/http" = ["wsl-open.desktop"];
+    "x-scheme-handler/https" = ["wsl-open.desktop"];
+    "x-scheme-handler/about" = ["wsl-open.desktop"];
+    "x-scheme-handler/unknown" = ["wsl-open.desktop"];
   };
 }

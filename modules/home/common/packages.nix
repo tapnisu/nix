@@ -62,5 +62,10 @@
     alejandra
 
     ffmpeg-full # no nvidia features
+
+    xdg-utils
+    neovim
+    wget
+    fastfetch
   ];
 }

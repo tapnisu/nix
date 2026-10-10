@@ -54,9 +54,7 @@
 
     systemPackages = with pkgs; [
       neovim
-      wget
       git
-      fastfetch
     ];
   };
 
