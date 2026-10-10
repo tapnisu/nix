@@ -209,6 +209,7 @@
     "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = {};
     "Mod+W".action.toggle-column-tabbed-display = {};
 
+    "Mod+Shift+S".action.screenshot = {};
     "Print".action.screenshot = {};
     "Ctrl+Print".action.screenshot-screen = {};
     "Alt+Print".action.screenshot-window = {};
