@@ -19,7 +19,6 @@
     obsidian
     readest
     prismlauncher
-    throne
     qbittorrent
   ];
 }

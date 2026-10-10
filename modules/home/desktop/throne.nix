@@ -1,7 +1,11 @@
 {pkgs, ...}: {
+  home.packages = [
+    pkgs.throne
+  ];
+
   systemd.user.services.throne = {
     Unit = {
-      Description = "Throne Proxy Client";
+      Description = "Throne - Cross-platform GUI proxy utility ";
       PartOf = ["graphical-session.target"];
     };
     Service = {
