@@ -1,11 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./common.nix
-    ../modules/hosts/greetd.nix
   ];
 
   networking.networkmanager.enable = true;
@@ -126,6 +121,10 @@
     ];
     config.common.default = "gtk";
   };
+
+  programs.niri.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.displayManager.defaultSession = "niri";
 
   networking.firewall = {
     allowedTCPPorts = [25565];
