@@ -16,4 +16,8 @@
   };
 
   programs.swaylock.enable = true;
+
+  services.swayosd = {
+    enable = true;
+  };
 }
