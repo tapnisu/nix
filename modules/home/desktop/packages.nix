@@ -7,6 +7,7 @@
     inputs.spotifast.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     brightnessctl
+    playerctl
 
     nautilus
     loupe
