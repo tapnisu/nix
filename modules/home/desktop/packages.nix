@@ -6,6 +6,8 @@
   home.packages = with pkgs; [
     inputs.spotifast.packages.${pkgs.stdenv.hostPlatform.system}.default
 
+    brightnessctl
+
     nautilus
     loupe
     imv
