@@ -20,5 +20,7 @@
     readest
     prismlauncher
     qbittorrent
+    gnome-calculator
+    gnome-calendar
   ];
 }

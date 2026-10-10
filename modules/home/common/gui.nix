@@ -8,8 +8,8 @@
       package = pkgs.gnome-themes-extra;
     };
     iconTheme = {
-      name = "breeze-dark";
-      package = pkgs.kdePackages.breeze-icons;
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
     };
 
     gtk4.theme = null;
