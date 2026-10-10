@@ -11,6 +11,11 @@
         ApplicationTheme = "dark";
         CompactMode = true;
         HidePasswords = true;
+
+        ShowTrayIcon = true; # it won't minimize without this
+        MinimizeOnStartup = true;
+        MinimizeToTray = true;
+        MinimizeOnClose = true;
       };
       FdoSecrets.Enabled = true;
     };
