@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./wslview.nix
+    ./wsl-open.nix
     ../desktop/zed.nix
   ];
 }
