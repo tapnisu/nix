@@ -145,8 +145,11 @@
   services.logind.settings.Login.PowerKey = "hibernate";
   services.logind.settings.Login.PowerKeyLongPress = "poweroff";
 
-  # Suspend first
-  boot.kernelParams = ["mem_sleep_default=deep"];
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitchExternalPower = "lock";
+    HandleLidSwitchDocked = "ignore";
+  };
 
   # Define time delay for hibernation
   systemd.sleep.settings.Sleep = {

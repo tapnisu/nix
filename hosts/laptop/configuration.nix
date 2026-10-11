@@ -17,7 +17,10 @@
     }
   ];
 
-  boot.kernelParams = ["resume_offset=23130112"];
+  boot.kernelParams = [
+    "iommu=pt" # prevents sleep mode from taking ages
+    "resume_offset=36470784" # https://nixos.wiki/wiki/Hibernation
+  ];
   boot.resumeDevice = "/dev/disk/by-uuid/efc7234a-e121-4130-9f31-6127a9c84415";
 
   console.font = lib.mkDefault "ter-v32n";
