@@ -19,8 +19,8 @@
       action.spawn = "firefox";
     };
     "Super+Alt+L" = {
-      hotkey-overlay.title = "Lock the Screen: swaylock";
-      action.spawn = "swaylock";
+      hotkey-overlay.title = "Lock the Screen: gtklock";
+      action.spawn = "gtklock";
     };
     "Super+Alt+S" = {
       allow-when-locked = true;

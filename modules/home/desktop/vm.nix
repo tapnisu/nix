@@ -15,11 +15,23 @@
     };
   };
 
-  programs.swaylock.enable = true;
+  home.packages = [
+    pkgs.gtklock
+  ];
 
-  services.swayosd = {
+  services.swayidle = {
     enable = true;
+    timeouts = [
+      {
+        timeout = 600;
+        command = "${pkgs.systemd}/bin/systemctl suspend";
+      }
+    ];
+    events = {
+      "before-sleep" = "${pkgs.gtklock}/bin/gtklock";
+    };
   };
 
+  services.swayosd.enable = true;
   services.swaync.enable = true;
 }

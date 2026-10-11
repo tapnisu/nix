@@ -24,6 +24,7 @@
 
   services.fprintd.enable = true;
   services.fprintd.tod.enable = false;
+  security.pam.services.gtklock.fprintAuth = true;
 
   nixpkgs.overlays = [
     (final: prev: {
