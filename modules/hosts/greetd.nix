@@ -1,9 +1,5 @@
 # https://github.com/sjcobb2022/nixos-config/blob/720ffb2c9c7f3643460de5f31bcca30ec38c1ebe/hosts/common/optional/greetd.nix
-{
-  pkgs,
-  inputs,
-  ...
-}: let
+{pkgs, ...}: let
   tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
   niri-session = "${pkgs.niri}/share/wayland-sessions";
 in {

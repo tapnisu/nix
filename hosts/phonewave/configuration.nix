@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   nix.extraOptions = ''
     experimental-features = nix-command flakes
     substituters = https://nixos-cache-proxy.cofob.dev
