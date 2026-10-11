@@ -4,6 +4,7 @@
   ];
 
   programs.lutris.enable = true;
+  programs.mangohud.enable = true;
 
   services.flatpak.packages = [
     "com.fightcade.Fightcade"
