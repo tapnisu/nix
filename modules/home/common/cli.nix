@@ -1,7 +1,12 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   # https://github.com/ae5259/nihh/blob/6d3f74e557c52fb16bdc68243acc78a364d8cd89/modules/zsh.nix
   programs.zsh = {
     enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
