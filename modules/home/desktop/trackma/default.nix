@@ -3,8 +3,14 @@
     pkgs.trackma-qt
   ];
 
-  xdg.configFile."trackma/config.json".source = ./config.json;
-  xdg.configFile."trackma/ui-qt.json".source = ./ui-qt.json;
+  xdg.configFile."trackma/config.json" = {
+    source = ./config.json;
+    force = true;
+  };
+  xdg.configFile."trackma/ui-qt.json" = {
+    source = ./ui-qt.json;
+    force = true;
+  };
 
   systemd.user.services.trackma = {
     Unit = {
