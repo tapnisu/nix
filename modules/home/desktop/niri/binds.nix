@@ -224,7 +224,10 @@
     };
 
     "Mod+Shift+E".action.quit = {};
-    "Ctrl+Alt+Delete".action.quit = {};
+    "Ctrl+Alt+Delete" = {
+      hotkey-overlay.title = "Logout: wleave";
+      action.spawn = "wleave";
+    };
     "Mod+Shift+P".action.power-off-monitors = {};
   };
 }

@@ -45,6 +45,7 @@
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
       cursor-theme = "Breeze_Light";
       cursor-size = 24;
     };

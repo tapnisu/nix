@@ -58,7 +58,8 @@
 
       spawn-at-startup = [
         {command = ["waybar"];}
-        {command = ["sh" "-c" "swaybg -i ~/Pictures/Wallpapers/__tohno_akiha_kohaku_hisui_and_yumizuka_satsuki_tsukihime_drawn_by_yakksan__34bf94fed8b9c11c0006850ce3bf214a.jpg -m fill"];}
+        {command = ["wleave" "--service"];}
+        {command = ["sh" "-c" "swaybg -i ~/Pictures/Wallpapers/__hakurei_reimu_touhou_and_1_more_drawn_by_shishui_guima__9ad837aabef5876d8bd24b948bddda15.png -m fill"];}
       ];
 
       cursor = {
