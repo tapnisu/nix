@@ -9,6 +9,7 @@
     ../../modules/hosts/gaming.nix
     ../../modules/hosts/obs.nix
     ../../modules/hosts/nvidia
+    ../../modules/hosts/bluetooth.nix
   ];
 
   networking.hostName = "tapnisu-desktop";

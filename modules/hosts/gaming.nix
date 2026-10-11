@@ -15,4 +15,6 @@
   environment.systemPackages = with pkgs; [
     gamescope-wsi
   ];
+
+  hardware.xpadneo.enable = true;
 }

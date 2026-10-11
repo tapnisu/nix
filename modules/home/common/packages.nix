@@ -67,5 +67,10 @@
     neovim
     wget
     fastfetch
+
+    nmgui
+    overskride
+
+    bluetui
   ];
 }

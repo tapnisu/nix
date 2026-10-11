@@ -4,6 +4,7 @@
     ../common-real-hardware.nix
     ../../modules/hosts/gaming.nix
     ../../modules/hosts/obs.nix
+    ../../modules/hosts/bluetooth.nix
     ../../modules/syncthing/laptop.nix
   ];
 
