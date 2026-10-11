@@ -136,4 +136,21 @@
     allowedTCPPorts = [25565];
     allowedUDPPorts = [25565];
   };
+
+  # https://nixos.wiki/wiki/Hibernation
+  services.power-profiles-daemon.enable = true;
+  # Suspend first then hibernate when closing the lid
+  services.logind.settings.Login.LidSwitch = "suspend-then-hibernate";
+  # Hibernate on power button pressed
+  services.logind.settings.Login.PowerKey = "hibernate";
+  services.logind.settings.Login.PowerKeyLongPress = "poweroff";
+
+  # Suspend first
+  boot.kernelParams = ["mem_sleep_default=deep"];
+
+  # Define time delay for hibernation
+  systemd.sleep.settings.Sleep = {
+    HibernateDelaySec = "30m";
+    SuspendState = "mem";
+  };
 }
