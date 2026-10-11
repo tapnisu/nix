@@ -3,8 +3,8 @@
     ./alacritty.nix
     ./discord.nix
     ./firefox.nix
+    ./gaming.nix
     ./keepassxc.nix
-    ./lutris.nix
     ./mpv.nix
     ./packages.nix
     ./polkit.nix

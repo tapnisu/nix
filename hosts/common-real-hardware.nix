@@ -1,5 +1,10 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
+    "${inputs.nix-flatpak}/modules/nixos.nix"
     ./common.nix
   ];
 
@@ -62,6 +67,7 @@
   ];
 
   services.flatpak.enable = true;
+  services.flatpak.update.onActivation = true;
 
   services.openssh = {
     enable = true;
