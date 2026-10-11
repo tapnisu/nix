@@ -92,6 +92,17 @@
           block-out-from = "screen-capture";
         }
         {
+          matches = [
+            {app-id = "steam";}
+            {title = "^notificationtoasts_\d+_desktop$";}
+          ];
+          default-floating-position = {
+            x = 0;
+            y = 0;
+            relative-to = "bottom-right";
+          };
+        }
+        {
           geometry-corner-radius = {
             top-left = 12.0;
             top-right = 12.0;
