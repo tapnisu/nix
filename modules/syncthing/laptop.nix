@@ -47,5 +47,16 @@
         "*"
       ];
     };
+    "MBAACC Results & Replays" = {
+      id = "dj6pe-y3jqa";
+      path = "~/Games/melty-blood-actress-again-current-code/drive_c/Program\ Files/MBAACC/";
+      devices = ["Tapnisu Desktop" "Kohaku"];
+      ignoreParrents = [
+        "!/results.csv"
+        "!/ReplayVS/"
+        "!/ReplayVS/**"
+        "*"
+      ];
+    };
   };
 }
