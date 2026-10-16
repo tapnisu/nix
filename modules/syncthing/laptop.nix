@@ -35,5 +35,17 @@
       path = "~/.local/share/Steam/userdata/471257832/760";
       devices = ["Tapnisu Desktop" "Kohaku"];
     };
+    "Touhou 15.5: Antinomy of Common Flowers save data" = {
+      id = "7kfel-bqmgs";
+      path = "~/.local/share/Steam/steamapps/common/th155";
+      devices = ["Tapnisu Desktop" "Kohaku"];
+      ignorePatterns = [
+        "!/replay"
+        "!/replay/**"
+        "!/system.dat"
+        "!/score.dat"
+        "*"
+      ];
+    };
   };
 }
