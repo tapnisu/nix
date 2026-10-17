@@ -4,23 +4,23 @@
 
     "Mod+Return" = {
       hotkey-overlay.title = "Open a Terminal: alacritty";
-      action.spawn = "alacritty";
+      action.spawn = "${pkgs.alacritty}/bin/alacritty";
     };
     "Mod+D" = {
       hotkey-overlay.title = "Run an Application: fuzzel";
-      action.spawn = "fuzzel";
+      action.spawn = "${pkgs.fuzzel}/bin/fuzzel";
     };
     "Mod+E" = {
       hotkey-overlay.title = "Run an Application: nautilus";
-      action.spawn = "nautilus";
+      action.spawn = "${pkgs.nautilus}/bin/nautilus";
     };
     "Mod+B" = {
       hotkey-overlay.title = "Run an Application: firefox";
-      action.spawn = "firefox";
+      action.spawn = "${pkgs.firefox}/bin/firefox";
     };
     "Super+Alt+L" = {
       hotkey-overlay.title = "Lock the Screen: gtklock";
-      action.spawn = "gtklock";
+      action.spawn = "${pkgs.gtklock}/bin/gtklock";
     };
     "Mod+Shift+C".action.spawn = [
       "sh"
@@ -237,7 +237,7 @@
     "Mod+Shift+E".action.quit = {};
     "Ctrl+Alt+Delete" = {
       hotkey-overlay.title = "Logout: wleave";
-      action.spawn = "wleave";
+      action.spawn = "${pkgs.wleave}/bin/wleave";
     };
     "Mod+Shift+P".action.power-off-monitors = {};
   };
