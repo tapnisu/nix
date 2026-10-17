@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports = [
     ./cli.nix
+    ./face.nix
     ./git.nix
     ./gui.nix
     ./packages.nix
