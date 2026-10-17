@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.niri.settings.binds = {
     "Mod+Shift+Slash".action.show-hotkey-overlay = {};
 
@@ -22,6 +22,17 @@
       hotkey-overlay.title = "Lock the Screen: gtklock";
       action.spawn = "gtklock";
     };
+    "Mod+Shift+C".action.spawn = [
+      "sh"
+      "-c"
+      ''
+        COLOR=$(${pkgs.hyprpicker}/bin/hyprpicker -n)
+        if [ -n "$COLOR" ]; then
+          echo -n "$COLOR" | ${pkgs.wl-clipboard}/bin/wl-copy
+          ${pkgs.libnotify}/bin/notify-send "Color Picked" "$COLOR" -i color-select
+        fi
+      ''
+    ];
     "Super+Alt+S" = {
       allow-when-locked = true;
       action.spawn = ["sh" "-c" "pkill orca || exec orca"];
