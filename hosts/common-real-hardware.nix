@@ -156,4 +156,14 @@
     HibernateDelaySec = "30m";
     SuspendState = "mem";
   };
+
+  programs.gtklock = {
+    enable = true;
+
+    modules = with pkgs; [
+      gtklock-playerctl-module
+      gtklock-powerbar-module
+      gtklock-userinfo-module
+    ];
+  };
 }

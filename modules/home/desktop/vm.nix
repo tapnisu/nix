@@ -15,10 +15,6 @@
     };
   };
 
-  home.packages = [
-    pkgs.gtklock
-  ];
-
   # https://wiki.nixos.org/wiki/Swayidle
   services.swayidle = let
     lock = "${pkgs.gtklock}/bin/gtklock --daemonize";
