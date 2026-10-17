@@ -56,6 +56,10 @@
         };
       };
 
+      gestures = {
+        hot-corners.enable = false;
+      };
+
       spawn-at-startup = [
         {command = ["waybar"];}
         {command = ["wleave" "--service"];}
