@@ -7,8 +7,12 @@
       action.spawn = "${pkgs.alacritty}/bin/alacritty";
     };
     "Mod+D" = {
-      hotkey-overlay.title = "Run an Application: fuzzel";
-      action.spawn = "${pkgs.fuzzel}/bin/fuzzel";
+      hotkey-overlay.title = "Run an Application: rofi run";
+      action.spawn = ["${pkgs.rofi}/bin/rofi" "-show" "run"];
+    };
+    "Mod+S" = {
+      hotkey-overlay.title = "Run an Application: rofi window";
+      action.spawn = ["${pkgs.rofi}/bin/rofi" "-show" "window"];
     };
     "Mod+E" = {
       hotkey-overlay.title = "Run an Application: nautilus";

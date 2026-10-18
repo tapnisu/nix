@@ -9,12 +9,10 @@ button {
     padding: 10px;
 }
 
-/** The button's label */
 button label.action-name {
     font-size: 24px;
 }
 
-/** The keyboard shortcut label for each of the labels */
 button label.keybind {
     font-size: 20px;
     font-family: monospace;

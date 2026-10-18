@@ -72,6 +72,6 @@
         }
       ];
     };
-    style = builtins.readFile ./style.css;
+    style = ./style.css;
   };
 }

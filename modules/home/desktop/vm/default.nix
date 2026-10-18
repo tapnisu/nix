@@ -1,5 +1,5 @@
 {...}: {
-  imports = [./niri ./waybar ./fuzzel ./swayidle.nix ./wleave];
+  imports = [./niri ./waybar ./rofi ./swayidle.nix ./wleave];
 
   services.swayosd.enable = true;
   services.swaync.enable = true;
