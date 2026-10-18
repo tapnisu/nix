@@ -10,6 +10,10 @@
       hotkey-overlay.title = "Run an Application: rofi run";
       action.spawn = ["${pkgs.rofi}/bin/rofi" "-show" "run"];
     };
+    "Mod+Shift+D" = {
+      hotkey-overlay.title = "Run an Application: rofi drun";
+      action.spawn = ["${pkgs.rofi}/bin/rofi" "-show" "drun"];
+    };
     "Mod+S" = {
       hotkey-overlay.title = "Run an Application: rofi window";
       action.spawn = ["${pkgs.rofi}/bin/rofi" "-show" "window"];
