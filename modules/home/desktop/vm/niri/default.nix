@@ -32,16 +32,16 @@
         focus-ring = {
           enable = true;
           width = 4;
-          active.color = "#7fc8ff";
-          inactive.color = "#505050";
+          active.color = "#3584e4";
+          inactive.color = "#303030";
         };
 
         border = {
           enable = false;
           width = 4;
-          active.color = "#ffc87f";
-          inactive.color = "#505050";
-          urgent.color = "#9b0000";
+          active.color = "#78aeed";
+          inactive.color = "#242424";
+          urgent.color = "#c01c28";
         };
 
         shadow = {
@@ -52,7 +52,7 @@
             x = 0;
             y = 5;
           };
-          color = "#0007";
+          color = "rgba(0, 0, 0, 0.4)";
         };
       };
 
