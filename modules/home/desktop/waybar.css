@@ -1,0 +1,38 @@
+* {
+    border: none;
+    font-family: "Adwaita Sans", monospace;
+    font-size: 12px;
+}
+
+window#waybar {
+    background-color: #2e2e32;
+    color: #ffffff;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 8px 0;
+}
+
+#workspaces button {
+    color: #ffffff;
+}
+
+#workspaces button.active {
+    color: #3584e4;
+}
+
+#clock {
+    padding: 0 4px;
+}
+
+#clock.time,
+#clock.date {
+    padding: 0 4px;
+}
+
+#battery,
+#tray {
+    padding: 8px 0;
+}
