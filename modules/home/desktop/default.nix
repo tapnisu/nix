@@ -11,7 +11,7 @@
     ./throne.nix
     ./thunderbird.nix
     ./trackma
-    ./vm.nix
+    ./vm
     ./zed.nix
   ];
 
