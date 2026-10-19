@@ -9,7 +9,6 @@
   ];
 
   networking.networkmanager.enable = true;
-  time.hardwareClockInLocalTime = true; # hi windows
 
   boot = {
     supportedFilesystems = ["ntfs"];
