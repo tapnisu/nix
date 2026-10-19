@@ -24,7 +24,7 @@
 
     tapciify.url = "github:tapnisu/tapciify";
     niri.url = "github:sodiboo/niri-flake";
-    spotifast.url = "github:crmne/spotifast/v0.12.0";
+    spotifast.url = "github:crmne/spotifast/v0.13.2";
   };
 
   outputs = inputs @ {

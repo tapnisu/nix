@@ -25,6 +25,7 @@ window#waybar {
 }
 
 #clock,
+#language,
 #battery,
 #tray {
     padding: 0 8px;

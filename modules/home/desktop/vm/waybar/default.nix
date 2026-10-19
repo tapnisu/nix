@@ -12,10 +12,14 @@
 
         modules-left = ["niri/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["battery" "tray"];
+        modules-right = ["niri/language" "battery" "tray"];
 
         "niri/workspaces" = {
           format = "{icon}";
+        };
+
+        "niri/language" = {
+          format = "{short}";
         };
 
         "clock" = {
