@@ -4,7 +4,6 @@ configuration {
     font: "Adwaita Sans, Inter, sans-serif 12";
     terminal: "alacritty";
     run-shell-command: "{terminal} -e {cmd}";
-    run-command: "{terminal} -e {cmd}";
     drun-display-format: "{name}";
 }
 
