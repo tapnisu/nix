@@ -1,9 +1,8 @@
 configuration {
     modi: "drun,run,filebrowser,window";
     show-icons: true;
-    font: "Adwaita Sans, Inter, sans-serif 12";
+    font: "Adwaita Sans, sans-serif 12";
     terminal: "alacritty";
-    run-shell-command: "{terminal} -e {cmd}";
     drun-display-format: "{name}";
 }
 
@@ -27,7 +26,7 @@ window {
     border: 4px;
     border-color: @border-col;
     border-radius: 12px;
-    padding: 14px;
+    padding: 8px;
 }
 
 mainbox {
@@ -45,12 +44,6 @@ inputbar {
 prompt {
     text-color: @selected-col;
     padding: 0px 6px 0px 0px;
-    vertical-align: 0.5;
-}
-
-entry {
-    placeholder: "Search...";
-    placeholder-color: @grey;
     vertical-align: 0.5;
 }
 

@@ -3,6 +3,13 @@
     enable = true;
     settings = {
       env.TERM = "xterm-256color";
+      window = {
+        padding = {
+          x = 8;
+          y = 8;
+        };
+        dynamic_padding = true;
+      };
       font = {
         size = 12;
         normal = {

@@ -5,14 +5,15 @@
 }
 
 window#waybar {
-    background-color: #2e2e32;
+    background-color: rgba(46, 46, 50, 0.999);
     color: #ffffff;
+    border-radius: 12px;
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    margin: 8px 0;
+    margin: 0 8px;
 }
 
 #workspaces button {
@@ -23,16 +24,8 @@ window#waybar {
     color: #3584e4;
 }
 
-#clock {
-    padding: 0 4px;
-}
-
-#clock.time,
-#clock.date {
-    padding: 0 4px;
-}
-
+#clock,
 #battery,
 #tray {
-    padding: 8px 0;
+    padding: 0 8px;
 }

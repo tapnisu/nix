@@ -20,7 +20,7 @@
       };
 
       layout = {
-        gaps = 16;
+        gaps = 12;
         center-focused-column = "never";
 
         preset-column-widths = [
@@ -32,7 +32,7 @@
         focus-ring = {
           enable = true;
           width = 4;
-          active.color = "#3584e4";
+          active.color = "#3584e4aa";
           inactive.color = "#303030";
         };
 

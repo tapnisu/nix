@@ -4,23 +4,23 @@
     settings = {
       mainBar = {
         layer = "top";
-        position = "left";
-        width = 48;
+        position = "top";
+
+        margin-top = 8;
+        margin-left = 8;
+        margin-right = 8;
 
         modules-left = ["niri/workspaces"];
-        modules-center = ["clock#time" "clock#date"];
+        modules-center = ["clock"];
         modules-right = ["battery" "tray"];
 
         "niri/workspaces" = {
           format = "{icon}";
         };
 
-        "clock#time" = {
-          format = "{:%H:%M}";
-        };
-
-        "clock#date" = {
-          format = "{:%d.%m}";
+        "clock" = {
+          format = "{:%H:%M %d.%m}";
+          tooltip = false;
         };
 
         "tray" = {
