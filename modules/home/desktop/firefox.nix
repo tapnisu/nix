@@ -16,6 +16,7 @@
       settings = {
         "browser.shell.checkDefaultBrowser" = false;
         "intl.locale.requested" = "ru";
+        "intl.regional_prefs.configured" = "ru";
       };
     };
   };
