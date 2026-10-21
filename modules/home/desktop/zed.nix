@@ -22,6 +22,7 @@
         dark = "Gruvbox Dark Hard";
       };
       buffer_font_family = "Iosevka Nerd Font";
+      load_direnv = "shell_hook";
       languages = {
         Nix = {
           formatter = {
