@@ -23,7 +23,7 @@
   ];
   boot.resumeDevice = "/dev/disk/by-uuid/efc7234a-e121-4130-9f31-6127a9c84415";
 
-  console.font = lib.mkDefault "ter-v32n";
+  console.font = "ter-v32n";
 
   services.fprintd.enable = true;
   services.fprintd.tod.enable = false;

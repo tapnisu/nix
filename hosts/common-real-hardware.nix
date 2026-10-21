@@ -1,9 +1,12 @@
 {
+  lib,
   inputs,
   pkgs,
+  config,
   ...
 }: {
   imports = [
+    inputs.minegrub-world-sel-theme.nixosModules.default
     "${inputs.nix-flatpak}/modules/nixos.nix"
     ./common.nix
   ];
@@ -15,10 +18,25 @@
     loader = {
       grub = {
         enable = true;
+        splashImage = null;
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
         configurationLimit = 5;
+
+        minegrub-world-sel = {
+          enable = true;
+          background = "assets/background-scaled/background-2560x1440.png";
+
+          customIcons = with config.system.nixos; [
+            {
+              name = distroId;
+              lineTop = distroName + " " + codeName + " (" + version + ")";
+              lineBottom = "Survival Mode, No Cheats, Version: " + release;
+              imgName = "nixos";
+            }
+          ];
+        };
       };
       efi.canTouchEfiVariables = true;
     };
@@ -49,7 +67,7 @@
 
   console = {
     packages = with pkgs; [terminus_font];
-    font = "ter-v16n";
+    font = lib.mkDefault "ter-v16n";
     useXkbConfig = true;
   };
 

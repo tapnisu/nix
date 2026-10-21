@@ -22,6 +22,10 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    minegrub-world-sel-theme = {
+      url = "github:Lxtharia/minegrub-world-sel-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     tapciify.url = "github:tapnisu/tapciify";
     niri.url = "github:sodiboo/niri-flake";
     spotifast.url = "github:crmne/spotifast/v0.13.2";

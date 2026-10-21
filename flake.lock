@@ -55,6 +55,26 @@
         "type": "github"
       }
     },
+    "minegrub-world-sel-theme": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791992412,
+        "narHash": "sha256-GvRczS1ZaawnZTkR3XvFQj/wxJo6RJ5NdHc2+F6RI90=",
+        "owner": "Lxtharia",
+        "repo": "minegrub-world-sel-theme",
+        "rev": "87d3e5185b85f5f3585f191bae3a6234448c3f94",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Lxtharia",
+        "repo": "minegrub-world-sel-theme",
+        "type": "github"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -356,6 +376,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "minegrub-world-sel-theme": "minegrub-world-sel-theme",
         "niri": "niri",
         "nix-flatpak": "nix-flatpak",
         "nix-on-droid": "nix-on-droid",
