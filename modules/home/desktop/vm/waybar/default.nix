@@ -4,7 +4,7 @@
     settings = {
       mainBar = {
         layer = "top";
-        position = "top";
+        position = "bottom";
 
         margin-top = 8;
         margin-left = 8;
