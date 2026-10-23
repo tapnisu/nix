@@ -6,7 +6,7 @@
         layer = "top";
         position = "bottom";
 
-        margin-top = 8;
+        margin-bottom = 8;
         margin-left = 8;
         margin-right = 8;
 
