@@ -464,11 +464,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1792739992,
-        "narHash": "sha256-auKHSCnwpDmuvvG3Erc9s3TPHyvApV9BWHzFUT+aObc=",
+        "lastModified": 1792751153,
+        "narHash": "sha256-dtghGPYXsYOgvEq3wN5Crhj4zN0+DO199kBmZq6P6yM=",
         "owner": "tapnisu",
         "repo": "tapciify",
-        "rev": "76c0184f16abbfae9aa796df2de23ac5e2d22770",
+        "rev": "9e877e80a1d78efa35228fd9c6e3b56108ad1187",
         "type": "github"
       },
       "original": {
