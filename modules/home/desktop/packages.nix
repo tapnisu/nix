@@ -9,6 +9,11 @@
     brightnessctl
     playerctl
 
+    libreoffice-qt
+    hunspell
+    hunspellDicts.en-us-large
+    hunspellDicts.ru-ru
+
     nautilus
     loupe
     imv
