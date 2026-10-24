@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  osConfig,
+  ...
+}: {
   imports = [
     ./cli.nix
     ./face.nix
@@ -22,5 +26,5 @@
     };
   };
 
-  home.stateVersion = "25.11";
+  home.stateVersion = lib.mkDefault osConfig.system.stateVersion;
 }

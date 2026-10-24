@@ -5,5 +5,8 @@
 
     ../../modules/hosts/openssh.nix
   ];
+
   networking.hostName = "tapnisu-laptop-wsl";
+
+  system.stateVersion = "25.11";
 }

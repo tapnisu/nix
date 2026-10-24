@@ -75,6 +75,4 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  system.stateVersion = "25.11";
 }

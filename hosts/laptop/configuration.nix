@@ -63,4 +63,6 @@
   };
 
   boot.loader.grub.minegrub-world-sel.background = "assets/background-scaled/background-2560x1440.png";
+
+  system.stateVersion = "25.11";
 }

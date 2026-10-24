@@ -19,4 +19,6 @@
   ];
 
   virtualisation.virtualbox.guest.enable = lib.mkForce false; # warning: implicit declaration of function 'drm_fb_helper_alloc_info'; did you mean 'drm_fb_helper_fill_info'? [-Wimplicit-function-declaration]
+
+  system.stateVersion = "25.11";
 }
