@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   wsl = {
     enable = true;
     defaultUser = "tapnisu";
@@ -15,4 +15,6 @@
   };
 
   programs.dconf.enable = true;
+
+  services.openssh.ports = lib.mkForce [22223];
 }

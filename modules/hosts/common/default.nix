@@ -25,7 +25,6 @@
     };
   };
 
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
   time.timeZone = "Asia/Krasnoyarsk";
 
   i18n = {
