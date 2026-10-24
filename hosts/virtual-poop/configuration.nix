@@ -1,7 +1,12 @@
 {lib, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ../common-real-hardware.nix
+
+    ../../modules/hosts/common
+    ../../modules/hosts/common/real-hardware.nix
+    ../../modules/hosts/common/desktop.nix
+
+    ../../modules/hosts/openssh.nix
   ];
 
   networking.hostName = "virtual-poop";

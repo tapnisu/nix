@@ -1,6 +1,4 @@
 {...}: {
-  imports = [./common.nix];
-
   wsl = {
     enable = true;
     defaultUser = "tapnisu";
@@ -15,4 +13,6 @@
     enable = true;
     enable32Bit = true;
   };
+
+  programs.dconf.enable = true;
 }

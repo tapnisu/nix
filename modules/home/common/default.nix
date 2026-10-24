@@ -3,7 +3,6 @@
     ./cli.nix
     ./face.nix
     ./git.nix
-    ./gui.nix
     ./packages.nix
     ./ssh.nix
   ];

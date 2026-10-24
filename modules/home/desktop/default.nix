@@ -4,6 +4,7 @@
     ./discord.nix
     ./firefox.nix
     ./gaming.nix
+    ./gui.nix
     ./keepassxc.nix
     ./mpv.nix
     ./packages.nix

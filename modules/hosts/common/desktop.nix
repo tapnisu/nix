@@ -8,10 +8,7 @@
   imports = [
     inputs.minegrub-world-sel-theme.nixosModules.default
     "${inputs.nix-flatpak}/modules/nixos.nix"
-    ./common.nix
   ];
-
-  networking.networkmanager.enable = true;
 
   boot = {
     supportedFilesystems = ["ntfs"];
@@ -26,7 +23,7 @@
 
         minegrub-world-sel = {
           enable = true;
-          background = "assets/background-scaled/background-2560x1440.png";
+          background = "assets/background-scaled/background-1920x1080.png";
 
           customIcons = with config.system.nixos; [
             {
@@ -42,24 +39,6 @@
     };
   };
 
-  services.udisks2.enable = true;
-
-  services.thermald.enable = true;
-
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
-  };
-
   services.xserver.xkb = {
     layout = "us,ru";
     options = "grp:alt_shift_toggle";
@@ -73,11 +52,6 @@
 
   virtualisation.docker.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    xwayland-satellite
-    ntfs3g
-  ];
-
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka
     nerd-fonts.iosevka-term
@@ -85,38 +59,6 @@
 
   services.flatpak.enable = true;
   services.flatpak.update.onActivation = true;
-
-  services.openssh = {
-    enable = true;
-    openFirewall = true;
-    ports = [22222];
-
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
-  };
-
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true;
-
-    user = "tapnisu";
-    group = "users";
-
-    settings = {
-      devices = {
-        "Tapnisu Desktop" = {id = "F6FWJLA-TZXKDLD-BKEYDQM-7C3B2OK-TXWKBB4-Z27CSBB-J527OKV-W6EWRQQ";};
-        "Tapnisu Laptop" = {id = "XE5RPQS-KUNJALJ-XJUXGYI-WZDPWEJ-XH4QKVJ-EQH6KRX-VPLIBBV-5P2OWQQ";};
-        "Tapnisu Laptop NixOS" = {id = "U6NKQLP-RH3BKAD-2TZIUXC-3HNMK45-RSYQRYL-2AILKYI-W5NBYFC-5BINTA4";};
-        "Tapnisu PhoneWave" = {id = "6NM7XYU-UHWI23M-Y5CAGDE-WMXLF2E-ZMN5RCW-ECQ2DT6-UD4G4TF-LTQAKQI";};
-        "Kohaku" = {id = "N6D4XN5-4SFUGUD-CSOVG67-QJNIDTZ-PIUZIWV-JNHTJE2-AOSNFOG-6NBTEAK";};
-      };
-      gui.user = "tapnisu";
-      options.urAccepted = -1; # dumb pop up
-    };
-  };
 
   services.gvfs.enable = true;
   services.tumbler.enable = true;
@@ -149,11 +91,6 @@
   services.displayManager.gdm.enable = true;
   services.displayManager.defaultSession = "niri";
 
-  networking.firewall = {
-    allowedTCPPorts = [25565];
-    allowedUDPPorts = [25565];
-  };
-
   # https://nixos.wiki/wiki/Hibernation
   services.power-profiles-daemon.enable = true;
   # Suspend first then hibernate when closing the lid
@@ -183,4 +120,11 @@
       gtklock-userinfo-module
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+    xwayland-satellite
+    ntfs3g
+  ];
+
+  programs.dconf.enable = true;
 }

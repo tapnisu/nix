@@ -1,11 +1,16 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ../common-real-hardware.nix
+
+    ../../modules/hosts/common
+    ../../modules/hosts/common/real-hardware.nix
+    ../../modules/hosts/common/desktop.nix
+
     ../../modules/hosts/gaming.nix
     ../../modules/hosts/obs.nix
-    ../../modules/hosts/nvidia
     ../../modules/hosts/bluetooth.nix
+    ../../modules/hosts/openssh.nix
+    ../../modules/hosts/syncthing
   ];
 
   networking.hostName = "tapnisu-desktop";

@@ -1,11 +1,19 @@
-{lib, ...}: {
+{inputs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ../common-real-hardware.nix
+
+    ../../modules/hosts/common
+    ../../modules/hosts/common/real-hardware.nix
+    ../../modules/hosts/common/desktop.nix
+
     ../../modules/hosts/gaming.nix
     ../../modules/hosts/obs.nix
     ../../modules/hosts/bluetooth.nix
-    ../../modules/syncthing/laptop.nix
+    ../../modules/hosts/openssh.nix
+    ../../modules/hosts/syncthing
+    ../../modules/hosts/syncthing/laptop.nix
+
+    inputs.minegrub-world-sel-theme.nixosModules.default
   ];
 
   networking.hostName = "tapnisu-laptop";
@@ -53,4 +61,6 @@
     # Optional: Fixes blurriness in Qt apps (like VLC or OBS)
     QT_QPA_PLATFORM = "wayland;xcb";
   };
+
+  boot.loader.grub.minegrub-world-sel.background = "assets/background-scaled/background-2560x1440.png";
 }

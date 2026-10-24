@@ -1,4 +1,9 @@
 {...}: {
-  imports = [../common-wsl.nix];
+  imports = [
+    ../../modules/hosts/common
+    ../../modules/hosts/common/wsl.nix
+
+    ../../modules/hosts/openssh.nix
+  ];
   networking.hostName = "tapnisu-laptop-wsl";
 }
