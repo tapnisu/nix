@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -12,8 +12,6 @@
     ../../modules/hosts/openssh.nix
     ../../modules/hosts/syncthing
     ../../modules/hosts/syncthing/laptop.nix
-
-    inputs.minegrub-world-sel-theme.nixosModules.default
   ];
 
   networking.hostName = "tapnisu-laptop";

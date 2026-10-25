@@ -23,7 +23,7 @@
 
         minegrub-world-sel = {
           enable = true;
-          background = "assets/background-scaled/background-1920x1080.png";
+          background = lib.mkDefault "assets/background-scaled/background-1920x1080.png";
 
           customIcons = with config.system.nixos; [
             {
