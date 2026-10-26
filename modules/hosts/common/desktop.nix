@@ -95,9 +95,6 @@
   services.power-profiles-daemon.enable = true;
   # Suspend first then hibernate when closing the lid
   services.logind.settings.Login.LidSwitch = "suspend-then-hibernate";
-  # Hibernate on power button pressed
-  services.logind.settings.Login.PowerKey = "hibernate";
-  services.logind.settings.Login.PowerKeyLongPress = "poweroff";
 
   services.logind.settings.Login = {
     HandleLidSwitch = "suspend-then-hibernate";

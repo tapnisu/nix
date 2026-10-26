@@ -68,9 +68,6 @@
     wget
     fastfetch
 
-    nmgui
-    overskride
-
     bluetui
   ];
 }

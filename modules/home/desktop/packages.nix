@@ -27,5 +27,8 @@
     qbittorrent
     gnome-calculator
     gnome-calendar
+
+    nmgui
+    overskride
   ];
 }

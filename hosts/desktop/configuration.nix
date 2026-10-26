@@ -24,5 +24,9 @@
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
+  # Hibernate on power button pressed
+  services.logind.settings.Login.PowerKey = "hibernate";
+  services.logind.settings.Login.PowerKeyLongPress = "poweroff";
+
   system.stateVersion = "25.11";
 }
