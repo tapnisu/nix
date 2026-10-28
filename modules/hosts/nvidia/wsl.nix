@@ -13,7 +13,5 @@
       "${pkgs.ncurses5}/lib"
     ];
     MESA_D3D12_DEFAULT_ADAPTER_NAME = "Nvidia";
-
-    ZED_ALLOW_EMULATED_GPU = 1; # Zed
   };
 }
