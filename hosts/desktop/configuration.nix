@@ -10,6 +10,8 @@
     ../../modules/hosts/obs.nix
     ../../modules/hosts/bluetooth.nix
     ../../modules/hosts/openssh.nix
+    ../../modules/hosts/suwayomi.nix
+
     ../../modules/hosts/syncthing
   ];
 
