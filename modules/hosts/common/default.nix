@@ -74,6 +74,4 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  services.gnome.gnome-keyring.enable = lib.mkForce false;
 }

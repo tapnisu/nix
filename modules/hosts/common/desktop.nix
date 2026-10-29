@@ -91,6 +91,9 @@
   services.displayManager.gdm.enable = true;
   services.displayManager.defaultSession = "niri";
 
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.gdm.enableGnomeKeyring = true;
+
   # https://nixos.wiki/wiki/Hibernation
   services.power-profiles-daemon.enable = true;
   # Suspend first then hibernate when closing the lid
