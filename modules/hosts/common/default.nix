@@ -11,10 +11,6 @@
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
 
-      substituters = lib.mkForce [
-        "https://nixos-cache-proxy.cofob.dev"
-      ];
-
       trusted-users = ["tapnisu"];
     };
 
