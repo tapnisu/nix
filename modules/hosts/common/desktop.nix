@@ -92,6 +92,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.gdm.enableGnomeKeyring = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   # https://nixos.wiki/wiki/Hibernation
   services.power-profiles-daemon.enable = true;
