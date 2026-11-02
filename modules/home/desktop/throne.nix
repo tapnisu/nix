@@ -1,10 +1,6 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = [
-    inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.throne
+    pkgs.throne
   ];
 
   systemd.user.services.throne = {
