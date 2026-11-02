@@ -73,7 +73,7 @@
         homeModules = [
           ./modules/home/common
           ./modules/home/desktop
-          ./modules/home/desktop/vm/niri/outputs/laptop.nix
+          ./modules/home/desktop/wm/niri/outputs/laptop.nix
         ];
       };
 
@@ -82,7 +82,7 @@
         homeModules = [
           ./modules/home/common
           ./modules/home/desktop
-          ./modules/home/desktop/vm/niri/outputs/desktop.nix
+          ./modules/home/desktop/wm/niri/outputs/desktop.nix
         ];
       };
 
@@ -91,7 +91,7 @@
         homeModules = [
           ./modules/home/common
           ./modules/home/desktop
-          ./modules/home/desktop/vm/niri/outputs/virtual-poop.nix
+          ./modules/home/desktop/wm/niri/outputs/virtual-poop.nix
         ];
       };
 

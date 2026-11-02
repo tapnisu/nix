@@ -12,7 +12,7 @@
     ./throne.nix
     ./thunderbird.nix
     ./trackma
-    ./vm
+    ./wm
     ./zed.nix
   ];
 
