@@ -43,8 +43,8 @@
         src = prev.fetchFromGitHub {
           owner = "Sbenazar";
           repo = "goodix-5f10-libfprint";
-          rev = "65ae70f2e1e3c41ec8a8911bc6282f54ffabdc2d";
-          hash = "sha256-NQkTnb7N9EHYU1LkLIleq0JsklFExWf9WMlAm1hf9DI=";
+          rev = "625c733837f05a24bcf81999b654b26ce5530313";
+          hash = "sha256-u/S4FH6XQQ+lTkbpApfGmdiOHGGtTBxh6/NWmbkf16o=";
         };
         patches = [];
         mesonFlags = (old.mesonFlags or []) ++ ["-Ddrivers=goodixtls5f10"];

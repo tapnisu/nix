@@ -41,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792818383,
-        "narHash": "sha256-199i7ubVSXTMl+0AAlL7cVCXSjcI+jWByMcimYjeMX0=",
+        "lastModified": 1794251182,
+        "narHash": "sha256-R2sZBXiOJo3HAnvTiVkbbHDJy//JMlAwUKEiPbfqPXk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "24f2190587513b9c2f73db112a17844ae912d965",
+        "rev": "6eb2d33d1d0c95a37ef6443c88e6c1686012ee8b",
         "type": "github"
       },
       "original": {
@@ -209,11 +209,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792982269,
-        "narHash": "sha256-5R5CFIKj06qTQevhg/rCFUSAMxfNgdn0oIBL57R7u0Y=",
+        "lastModified": 1794368463,
+        "narHash": "sha256-ncpk0eCCyhU7M7U/PGbtwb1PXqobksBBYbJJ13abV2g=",
         "owner": "nix-community",
         "repo": "NixOS-WSL",
-        "rev": "e45b24b7df093299072b13bf3144ed0ee340e769",
+        "rev": "05721a428830972f025a8575b1a19c418d422d1b",
         "type": "github"
       },
       "original": {
@@ -289,11 +289,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1793526781,
-        "narHash": "sha256-2Cxxgpz1+cRgKZJFi12/9LG3aIBN66f2RvFs34Oj/A0=",
+        "lastModified": 1794552581,
+        "narHash": "sha256-qXFIqA6FCcx7XeDzw0ZNlkDT9UiCzrNDwK8RuU8RcHM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9bb52223f4f6a0cc606fd0852d8784f896c137d5",
+        "rev": "f1e5c356f35d07e7b71a6b5e6c9338e0b029e0c0",
         "type": "github"
       },
       "original": {
@@ -429,16 +429,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1792969928,
-        "narHash": "sha256-LdhBPj7ZrXXMvQpM/DqYH5m7zH7duTZ/tZbHO3XI5CQ=",
+        "lastModified": 1793722883,
+        "narHash": "sha256-6BJpFjv0xSSQnk9/xRtsShsKUHup7uRDACPQLSKdwgg=",
         "owner": "crmne",
         "repo": "spotifast",
-        "rev": "3bc6bb48e2f83e63780e2b0f10b40bda17c5eed5",
+        "rev": "d22e8185e0baadbbd4d0262023f74d30b493c6e4",
         "type": "github"
       },
       "original": {
         "owner": "crmne",
-        "ref": "v0.14.2",
+        "ref": "v0.17.1",
         "repo": "spotifast",
         "type": "github"
       }
