@@ -24,6 +24,10 @@
 
       ytdl-raw-options = "proxy=[http://localhost:10808]";
     };
+
+    bindings = {
+      "MBTN_RIGHT" = "cycle pause";
+    };
   };
 
   xdg.configFile."mpv/scripts/fuzzydir.lua" = {
