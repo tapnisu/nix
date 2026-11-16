@@ -1,4 +1,8 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     "${inputs.nix-flatpak}/modules/home-manager.nix"
   ];
