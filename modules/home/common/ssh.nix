@@ -14,6 +14,11 @@
         user = "tapnisu";
         port = 22222;
       };
+      "nanaya" = {
+        hostname = "nanaya.tapni.su";
+        user = "tapnisu";
+        port = 22222;
+      };
       "akiha" = {
         hostname = "akiha.tapni.su";
         user = "tapnisu";
